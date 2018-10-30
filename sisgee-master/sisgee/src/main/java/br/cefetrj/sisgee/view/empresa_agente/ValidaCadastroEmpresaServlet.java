@@ -143,7 +143,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
                     isValid = false;
                 }
             } else {
-                agenteIntegracaoMsg = messages.getString(agenteIntegracaoMsg);
+                agenteIntegracaoMsg = messages.getString(agenteIntegracaoMsg); 
                 request.setAttribute("agenteIntegracaoMsg", agenteIntegracaoMsg);
                 isValid = false;
             }
@@ -159,6 +159,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
                 nomeEmpresaMsg = ValidaUtils.validaTamanho("Razão Social", 100, nomeEmpresa);
                 if (nomeEmpresaMsg.trim().isEmpty()) {
                     Empresa e = EmpresaServices.buscarEmpresaByNome(nomeEmpresa);
+                    //Alem do nome é necessário realizar outro teste pois pode existir varios João Batista da Silva
                     if (e == null) {
                         request.setAttribute("nomeEmpresa", nomeEmpresa);
                     } else {
@@ -280,7 +281,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             }
 
             /**
-             * Validação da Data de Assinatura do Convenio da Pessoa usando os
+             * Validação da Data do Registro do Convenio da Pessoa usando os
              * métodos da Classe ValidaUtils Campo obrigatório
              */
             Date dataAssinaturaEmpresa = null;
@@ -328,7 +329,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
         } else {
             /**
              * Validação do CPF da pessoa usando os métodos da Classe
-             * ValidaUtils Campo obrigatório; Tamanho de 11 caracteres; CNPJ
+             * ValidaUtils Campo obrigatório; Tamanho de 11 caracteres; CPF
              * repetido.
              */
             String cpfPessoaMsg = "";
@@ -336,7 +337,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             cpfPessoaMsg = ValidaUtils.validaObrigatorio("CPF", cpfPessoa);
             if (cpfPessoaMsg.trim().isEmpty()) {
 
-                //remove caracteres especiais antes de vazer a validação numérica do CNPJ
+                //remove caracteres especiais antes de vazer a validação numérica do CPF
                 cpfPessoa = cpfPessoa.replaceAll("[.|/|-]", "");
                 cpfPessoaMsg = ValidaUtils.validaInteger("CPF", cpfPessoa);
                 if (cpfPessoaMsg.trim().isEmpty()) {

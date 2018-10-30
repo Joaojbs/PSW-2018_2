@@ -53,6 +53,17 @@ public class ConvenioDAO extends GenericDAO<Convenio> {
 		    .setParameter("emp", emp)
 		    .getSingleResult();
 	}
+
+/**
+         * Método que busca o proximo número para o convênio
+         * @return 
+         */
+        public String buscarByUtimoNumero(){
+		return (String) manager.createQuery(
+		    "SELECT MAX(a.numeroConvenio) FROM Convenio a ORDER BY a.numeroConvenio")
+		    .getSingleResult();
+	}        
+        
         
         /**
          * Método que busca por pessoa
