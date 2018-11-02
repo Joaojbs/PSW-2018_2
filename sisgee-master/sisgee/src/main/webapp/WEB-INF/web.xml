@@ -26,8 +26,8 @@
         <servlet-class>br.cefetrj.sisgee.view.termoaditivo.VisualizarTermoEAditivo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ValidaBuscarAlteracaoConvenioServlet</servlet-name>
-        <servlet-class>br.cefetrj.sisgee.view.convenio.ValidaBuscarAlteracaoConvenioServlet</servlet-class>
+        <servlet-name>BuscarNumeroConvenioServlet</servlet-name>
+        <servlet-class>br.cefetrj.sisgee.view.convenio.BuscarNumeroConvenioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BuscarConvenioServlet</servlet-name>
@@ -50,8 +50,8 @@
         <url-pattern>/ValidaBuscarConvenioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ValidaBuscarAlteracaoConvenioServlet</servlet-name>
-        <url-pattern>/ValidaBuscarAlteracaoConvenioServlet</url-pattern>
+        <servlet-name>BuscarNumeroConvenioServlet</servlet-name>
+        <url-pattern>/BuscarNumeroConvenioServlet</url-pattern>
     </servlet-mapping>
     <jsp-config>
         <jsp-property-group>

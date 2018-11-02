@@ -63,7 +63,6 @@ public class BuscarConvenioServlet extends HttpServlet {
         Convenio convenio = null;
         List<Convenio> convenios = new ArrayList();
         List<Empresa> empresas = new ArrayList();
-        
         Empresa empresa = null;
         List<Pessoa> pessoas = new ArrayList();
 
@@ -91,10 +90,9 @@ public class BuscarConvenioServlet extends HttpServlet {
             if (convenio != null) {
                 convenios.add(convenio);
 
-            } 
+            }
         } else {
             isValid = false;
-       
         }
 
         /**
@@ -105,8 +103,8 @@ public class BuscarConvenioServlet extends HttpServlet {
 
                 try {
                     pessoas = PessoaServices.buscarPessoaByNomeList(nome.trim());
+
                     empresas = EmpresaServices.buscarEmpresaByNomeList(nome.trim());
-                    
                 } catch (Exception e) {
                     msg = messages.getString("br.cefetrj.sisgee.incluir_cadastro_empresa_servlet.msg_ocorreu_erro");
                     request.setAttribute("msg", msg);
@@ -134,7 +132,7 @@ public class BuscarConvenioServlet extends HttpServlet {
 
                     }
 
-                } 
+                }
 
                 if (empresas != null) {
 
@@ -155,14 +153,15 @@ public class BuscarConvenioServlet extends HttpServlet {
 
                 }
             }else {
-                isValid = false;
-            }
+            isValid = false;
+        }
         } else {
             isValid = false;
         }
 
         if (!convenios.isEmpty()) {
             isValid = true;
+
             request.setAttribute("filtro", convenios);
 
         }
@@ -171,22 +170,11 @@ public class BuscarConvenioServlet extends HttpServlet {
          * Se for valido dispacha para o mesmo form com a tabela de convenios encontrado setada
          */
         if (isValid) {
+
             request.getRequestDispatcher("form_renovar_convenio.jsp").forward(request, response);
-        } else {           
-            if (numero == null ){
-                
-                request.setAttribute("msg", messages.getString("br.cefetrj.sisgee.BuscarConvenioServlet.msg_atencao_nome_nao_localizado"));
-            
-            }else{
-                request.setAttribute("msg", messages.getString("br.cefetrj.sisgee.BuscarConvenioServlet.msg_atencao_num_nao_localizado"));
-            }
-            //request.setAttribute("erroBuscar", "Não foi encontrado nenhum convênio com os parâmetros passados.");
-            request.getRequestDispatcher("form_renovar_convenio.jsp").forward(request, response);
-            
-            
-            
-            
-            
+        } else {
+            request.setAttribute("erroBuscar", "Não foi encontrado nenhum convênio com os parâmetros passados.");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
 
         }
 

@@ -42,6 +42,8 @@ public class ConvenioServices {
 
         GenericDAO<Convenio> convenioDao = PersistenceManager.createGenericDAO(Convenio.class);
 
+       
+
         List<Convenio> x = convenioDao.buscarTodos();
         List<Convenio> aVencer = new ArrayList();
         for (Convenio convenio : x) {
@@ -157,23 +159,6 @@ public class ConvenioServices {
     }
     
     /**
-     * Método para buscar o útimo número do convênio
-     * @return 
-     */
-    
-    public static String[] buscarConvenioByUtimoNumeroAno() {
-        ConvenioDAO convenioDao = new ConvenioDAO();
-        String numeroAno[] = new String[2];
-        try {
-             numeroAno[0] = convenioDao.buscarByUtimoNumero();
-            
-        } catch (Exception e) {
-            return null;
-        }
-        return numeroAno;
-    }    
-    
-    /**
      * Método para fazer um merge de um convenio
      * @param convenio 
      */
@@ -189,5 +174,5 @@ public class ConvenioServices {
 			e.printStackTrace();
 			PersistenceManager.getTransaction().rollback();
 		}
-    }
+	}
 }

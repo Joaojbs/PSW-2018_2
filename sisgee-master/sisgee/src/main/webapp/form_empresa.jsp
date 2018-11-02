@@ -19,10 +19,9 @@
                     ${ msg }
                 </div>
             </c:if>
-
+           
             <p class="tituloForm">
-            <h5 class="offset-5"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_titulo" /></h5>		
-
+            <h5 class="offset-5"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_titulo" /></h5>	           
             <form id="meuForm" action="ValidaCadastroEmpresaServlet" method="POST">
                 <fieldset class="form-group">
 
@@ -79,7 +78,7 @@
                                 
                         <div class="form-row "  >
                             <div class="form-group col-md-2 mt-2">
-                            <label for="numeroConvenioEmpresa"><fmt:message key = "br.cefetrj.sisgee.resources.form.numeroConvenio"/></label>
+                            <label for="numeroConvenioEmpresa"><fmt:message key = "br.cefetrj.sisgee.resources.form.numeroConvenio"/></label> 
                             <input type="text" class="form-control ${ not empty numeroConvenioEmpresaMsg ? 'is-invalid': 'is-valid' }" id="numeroConvenioEmpresa" name="numeroConvenioEmpresa" maxlength="16" value="${ param.numeroConvenioEmpresa }">
                             <c:if test="${ not empty numeroConvenioEmpresaMsg }">
                                 <div class="invalid-feedback">${ numeroConvenioEmpresaMsg }</div>
@@ -228,6 +227,33 @@
                 $('#telefonePessoa').mask('(99)9999-99999');
                 
             });
+            
+          
+            function buscar_numero_convenio_ajax(){
+                $("#numeroConvenio").html('');
+                $("#numeroConvenioEmpresa").html('');
+                
+                $.ajax({
+                    url: "BuscarNumeroConvenioServlet",
+                    type: 'POST',
+                    data: { "numeroConvenio": $("#numeroConvenio").val(),
+                            "numeroConvenioEmpresa": $("#numeroConvenio").val(),                            
+                            "ajax": "true",
+                          },
+                    success: function( msgs ) {
+                        if(msgs.sucess === true){
+                            location.href = 'BuscarNumeroConvenioServlet';
+                        }
+                        
+                    }
+                });
+            }
+        
+            
+            
+            
+            
+            
         </script>
 
 

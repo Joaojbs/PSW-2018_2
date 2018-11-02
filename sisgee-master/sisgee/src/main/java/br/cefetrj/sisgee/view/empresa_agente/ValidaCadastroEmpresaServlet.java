@@ -50,23 +50,21 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
 
         String tipoPessoa = request.getParameter("tipoPessoa");
         boolean pessoaJuridica = true;
-        String agenteIntegracao = request.getParameter("agenteIntegracao");
-        String numeroConvenioEmpresa = request.getParameter("numeroConvenioEmpresa");
-        String anoEmpresa = request.getParameter("anoEmpresa");
         String cnpjEmpresa = request.getParameter("cnpjEmpresa");
-        String nomeEmpresa = request.getParameter("nomeEmpresa");        
-        String dataAssinaturaConvenioEmpresa = request.getParameter("dataAssinaturaConvenioEmpresa");        
+        String nomeEmpresa = request.getParameter("nomeEmpresa");
+        String agenteIntegracao = request.getParameter("agenteIntegracao");
+
+        String dataAssinaturaConvenioEmpresa = request.getParameter("dataAssinaturaConvenioEmpresa");
+
+        String dataAssinaturaConvenioPessoa = request.getParameter("dataAssinaturaConvenioPessoa");
         String emailEmpresa = request.getParameter("emailEmpresa");
-        String telefoneEmpresa = request.getParameter("telefoneEmpresa");
+        String telefoneEmpresa = request.getParameter("telefoneEmpresa").replaceAll("[(|)|-]", "");
         String contatoEmpresa = request.getParameter("contatoEmpresa");
-        
-        String numeroConvenioPessoa = request.getParameter("numeroConvenioPessoa");
-        String anoPessoa = request.getParameter("anoPessoa");
+
         String cpfPessoa = request.getParameter("cpfPessoa");
         String nomePessoa = request.getParameter("nomePessoa");
-        String dataAssinaturaConvenioPessoa = request.getParameter("dataAssinaturaConvenioPessoa");
         String emailPessoa = request.getParameter("emailPessoa");
-        String telefonePessoa = request.getParameter("telefonePessoa");
+        String telefonePessoa = request.getParameter("telefonePessoa").replaceAll("[(|)|-]", "");
         if (tipoPessoa.equals("nao")) {
             pessoaJuridica = false;
         }
@@ -143,7 +141,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
                     isValid = false;
                 }
             } else {
-                agenteIntegracaoMsg = messages.getString(agenteIntegracaoMsg); 
+                agenteIntegracaoMsg = messages.getString(agenteIntegracaoMsg);
                 request.setAttribute("agenteIntegracaoMsg", agenteIntegracaoMsg);
                 isValid = false;
             }
@@ -159,7 +157,6 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
                 nomeEmpresaMsg = ValidaUtils.validaTamanho("Razão Social", 100, nomeEmpresa);
                 if (nomeEmpresaMsg.trim().isEmpty()) {
                     Empresa e = EmpresaServices.buscarEmpresaByNome(nomeEmpresa);
-                    //Alem do nome é necessário realizar outro teste pois pode existir varios João Batista da Silva
                     if (e == null) {
                         request.setAttribute("nomeEmpresa", nomeEmpresa);
                     } else {
@@ -213,7 +210,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             String telefoneEmpresaMsg = "";
             telefoneEmpresaMsg = ValidaUtils.validaObrigatorio("telefoneEmpresa", telefoneEmpresa);
             if (telefoneEmpresaMsg.trim().isEmpty()) {
-                telefoneEmpresaMsg = ValidaUtils.validaTamanho("telefoneEmpresa", 13, telefoneEmpresa);
+                telefoneEmpresaMsg = ValidaUtils.validaTamanho("telefoneEmpresa", 11, telefoneEmpresa);
 
                 if (telefoneEmpresaMsg.trim().isEmpty()) {
                     telefoneEmpresa = telefoneEmpresa.replaceAll("[(|)|-]", "");
@@ -281,7 +278,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             }
 
             /**
-             * Validação da Data do Registro do Convenio da Pessoa usando os
+             * Validação da Data de Assinatura do Convenio da Pessoa usando os
              * métodos da Classe ValidaUtils Campo obrigatório
              */
             Date dataAssinaturaEmpresa = null;
@@ -329,7 +326,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
         } else {
             /**
              * Validação do CPF da pessoa usando os métodos da Classe
-             * ValidaUtils Campo obrigatório; Tamanho de 11 caracteres; CPF
+             * ValidaUtils Campo obrigatório; Tamanho de 11 caracteres; CNPJ
              * repetido.
              */
             String cpfPessoaMsg = "";
@@ -337,7 +334,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             cpfPessoaMsg = ValidaUtils.validaObrigatorio("CPF", cpfPessoa);
             if (cpfPessoaMsg.trim().isEmpty()) {
 
-                //remove caracteres especiais antes de vazer a validação numérica do CPF
+                //remove caracteres especiais antes de vazer a validação numérica do CNPJ
                 cpfPessoa = cpfPessoa.replaceAll("[.|/|-]", "");
                 cpfPessoaMsg = ValidaUtils.validaInteger("CPF", cpfPessoa);
                 if (cpfPessoaMsg.trim().isEmpty()) {
@@ -436,7 +433,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             String telefonePessoaMsg = "";
             telefonePessoaMsg = ValidaUtils.validaObrigatorio("telefonePessoa", telefonePessoa);
             if (telefonePessoaMsg.trim().isEmpty()) {
-                telefonePessoaMsg = ValidaUtils.validaTamanho("telefonePessoa", 13, telefonePessoa);
+                telefonePessoaMsg = ValidaUtils.validaTamanho("telefonePessoa", 11, telefonePessoa);
                 if (telefonePessoaMsg.trim().isEmpty()) {
                     telefonePessoa = telefonePessoa.replaceAll("[(|)|-]", "");
                     telefonePessoaMsg = ValidaUtils.validaInteger("telefonePessoa", telefonePessoa);

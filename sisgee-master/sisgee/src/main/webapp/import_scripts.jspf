@@ -19,6 +19,18 @@
             $('.ehAgenteCheck').change(function(){
 	    	$('.AI').hide();
 	    	$(this).val() == 'sim' ? $('.isAI').show("slow") : $('.notAI').show("slow");;
+                var data = new Date;
+                var numero = buscar_numero_convenio_ajax();
+                if ( $("#numeroConvenioEmpresa").val("") && $("#anoEmpresa").val("") ){                    
+                    $("#anoEmpresa").val(data.getFullYear());
+                    $("#numeroConvenioEmpresa").val(numero);
+                }
+                if ( $("#numeroConvenio").val("") && $("#ano").val("") ){                    
+                    $("#ano").val(data.getFullYear());
+                    $("#numeroConvenio").val(numero);                    
+                }
+                    
+                
 	    });
             
            
