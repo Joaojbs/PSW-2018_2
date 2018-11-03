@@ -1,10 +1,24 @@
-Pessoa:
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (1,'12345678982','exemplo@asdasdas.com','HUMBERTO SANTANA','2192341234');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (2,'7775678922','exemplo@asdasdas.com','OTTO WALTER FRIEDRICH KNEUBUHLER','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (3,'52145678952','exemplo@asdasdas.com','ANTONIO CARLOS BARROS FORMIGA','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (4,'82345678952','exemplo@asdasdas.com','MARIA LOURDES','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (5,'99945678952','exemplo@asdasdas.com','EDGAR SILVEIRA','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values ();
+
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (1,'12345678912','exemplo@asdasdas.com','HUMBERTO SANTANA','2192341234');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (2,'23456789123','exemplo@asdasdas.com','OTTO WALTER FRIEDRICH KNEUBUHLER','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (3,'78945612378','exemplo@asdasdas.com','ANTONIO CARLOS BARROS FORMIGA','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (4,'45678912348','exemplo@asdasdas.com','MARIA LOURDES','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (5,'32165498798','exemplo@asdasdas.com','EDGAR SILVEIRA','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (6,'98765432145','','','2125274185');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (7,'65498732145','','','2126324567');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (8,'95162984754','','','2135768951');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (9,'10524578952','','','2132165498');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (10,'85296374128','','','2136385278');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (11,'85274136989','','','2155296547');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (12,'74196325874','','','2126385274');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (13,'15935785245','','','2135768456');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (14,'15975365478','','','2155296335');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (15,'54756982546','','','2165245678');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (16,'15975325875','','','2158765425');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (17,'15975385287','','','2165295475');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (18,'15948753258','','','2175295475');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (19,'74187569878','','','2145678985');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (20,'95162847536','','','2165245678');
 
 Campus:
 
