@@ -171,11 +171,11 @@ INSERT INTO Convenio(idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagen
 
 ------------
 NOME DOS PROFESSORES
-insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (1, 'ALEXANDRE LINHARES');  
-insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (2, 'ALEXANDRE GUILHERME');  
-insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (3, 'MANOEL TOBIAS');  
-insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (4, 'DIOGO ALVES');  
-insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (200, 'YODA');  
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (1, 'ALEXANDRE LINHARES');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (2, 'ALEXANDRE GUILHERME');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (3, 'MANOEL TOBIAS');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (4, 'DIOGO ALVES');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (200, 'YODA');
 
 -- CONVENIO
 
