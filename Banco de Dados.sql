@@ -140,7 +140,7 @@ insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (70, '
 
 
 insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (1, '12345654321948', '2017-02-20' , true, 'googlellc@gmail.com', false, 'GOOGLE LLC', '234302018', 'RENATA DA SILVA', '2125616561', false);
-insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (2, '18473674859378', '2017-08-04' , true, 'sony@gmail.com', false, 'SONY SONY SONY SONY SONY SONY SONY SONY SONY SONYY'', '3334302018', 'MARCOS SONY', '2144444444', false);
+insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (2, '18473674859378', '2017-08-04' , true, 'sony@gmail.com', false, 'SONY SONY SONY SONY SONY SONY SONY SONY SONY SONYY', '3334302018', 'MARCOS SONY', '2144444444', false);
 insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (3, '83746382726383', '2017-06-02' , true, 'engenharisolucoes@gmail.com', false, 'ENGENHARIA E SOLUÇÕES', '234302018', 'FERNANDO VIEIRA', '2137483451', false);
 
 insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (1, 'ALEXANDRE LINHARES'); 
