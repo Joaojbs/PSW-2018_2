@@ -46,8 +46,8 @@ public class alterarConvenioServlet extends HttpServlet {
         String emailPessoa = request.getParameter("emailPessoa");
         String telefonePessoa = request.getParameter("telefonePessoa");
 
-        Date dataAssinaturaConvenioEmpresa = (Date) request.getAttribute("dataAssinaturaConvenioEmpresa");
-        Date dataAssinaturaConvenioPessoa = (Date) request.getAttribute("dataAssinaturaConvenioPessoa");
+        Date dataRegistroConvenioEmpresa = (Date) request.getAttribute("dataRegistroConvenioEmpresa");
+        Date dataRegistroConvenioPessoa = (Date) request.getAttribute("dataRegistroConvenioPessoa");
 
         String emailEmpresa = request.getParameter("emailEmpresa");
         String telefoneEmpresa = request.getParameter("telefoneEmpresa");
@@ -58,13 +58,13 @@ public class alterarConvenioServlet extends HttpServlet {
             convenio.getEmpresa().setContatoEmpresa(contatoEmpresa);
             convenio.getEmpresa().setTelefoneEmpresa(telefoneEmpresa);
             convenio.getEmpresa().setEmailEmpresa(emailEmpresa);
-            convenio.setDataAssinatura(dataAssinaturaConvenioEmpresa);
+            convenio.setdataRegistro(dataRegistroConvenioEmpresa);
 
             convenio.setNumeroConvenio();
         } else {
             convenio.getPessoa().setTelefone(telefonePessoa);
             convenio.getPessoa().setEmail(emailPessoa);
-            convenio.setDataAssinatura(dataAssinaturaConvenioPessoa);
+            convenio.setdataRegistro(dataRegistroConvenioPessoa);
 
             convenio.setNumeroConvenio();
         }

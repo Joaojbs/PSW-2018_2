@@ -131,32 +131,14 @@ insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(88,'
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(89,'Licenciatura em Física','Licenciatura em Física',8);
 
 
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 1, '1411021ENG', 'Gradualção', 1, 1);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 2, '1412035ENG', 'Gradualção', 2, 2);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 3, '1431627ENG', 'Gradualção', 3, 3);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 4, '1491321ENG', 'Gradualção', 4, 4);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 5, '1123456ENG', 'Gradualção', 5, 5);
 
 
-
-
-
-insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values();
-
-
-
-Agente de Integração:
-insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values (1, '8334959000175', 'Abr Vencer R. Humanos');
-insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values ();
-
-
-Empresa:
-insert into empresa (idempresa, agenteintegracao, cnpjempresa, contatoempresa, emailempresa, razaosocial, telefoneempresa)
-values (3,TRUE,'12345678912345','joao','joao@globo.com','João','2138853076'),
-insert into empresa (idempresa, agenteintegracao, cnpjempresa, contatoempresa, emailempresa, razaosocial, telefoneempresa)
-values (); 
-
-
-
-
-------------------------------------------------------------------------
-
-insert into Aluno (idAluno, matricula, nome, nomecampus, nomecurso) values (1, '1610334BCC', 'FELIPE RICARDO DOS SANTOS', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
+insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (1, '1610334BCC', 'FELIPE RICARDO DOS SANTOS', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
 insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (2, '1610346BCC', 'BRUNO RICARDO DOS SANTOS', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
 insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (3, '1610456BCC', 'THAINÁ GUIMARÃES OLIVEIRA', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
 insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (4, '1444456BCC', 'MUSTAFÁ MOHAMMAD', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
@@ -226,6 +208,30 @@ insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (67, '
 insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (68, '2110287BCC', 'NATHALIA BRITO', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
 insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (69, '2110288BCC', 'ARTHUR JULIO', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
 insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (70, '161033BCC', 'ARTHUR JULIO', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
+
+
+
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values();
+
+
+
+Agente de Integração:
+insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values (1, '8334959000175', 'Abr Vencer R. Humanos');
+insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values ();
+
+
+Empresa:
+insert into empresa (idempresa, agenteintegracao, cnpjempresa, contatoempresa, emailempresa, razaosocial, telefoneempresa)
+values (3,TRUE,'12345678912345','joao','joao@globo.com','João','2138853076'),
+insert into empresa (idempresa, agenteintegracao, cnpjempresa, contatoempresa, emailempresa, razaosocial, telefoneempresa)
+values (); 
+
+
+
+
+------------------------------------------------------------------------
+
 
 
 

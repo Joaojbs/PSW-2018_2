@@ -54,8 +54,8 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
         String nomeEmpresa = request.getParameter("nomeEmpresa");
         String agenteIntegracao = request.getParameter("agenteIntegracao");
         
-        Date dataAssinaturaConvenio = (Date)request.getAttribute("dataAssinaturaConvenioPessoa");
-        Date dataAssinaturaConvenioEmpresa = (Date)request.getAttribute("dataAssinaturaConvenioEmpresa");
+        Date dataRegistroConvenio = (Date)request.getAttribute("dataRegistroConvenioPessoa");
+        Date dataRegistroConvenioEmpresa = (Date)request.getAttribute("dataRegistroConvenioEmpresa");
         
         String emailEmpresa = request.getParameter("emailEmpresa");
         String telefoneEmpresa = request.getParameter("telefoneEmpresa").replaceAll("[(|)|-]", "");
@@ -100,7 +100,7 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
 
             }
             try {
-                Convenio convenio = new Convenio(request.getParameter("anoEmpresa"), request.getParameter("numeroConvenioEmpresa"), dataAssinaturaConvenioEmpresa, empresa);
+                Convenio convenio = new Convenio(request.getParameter("anoEmpresa"), request.getParameter("numeroConvenioEmpresa"), dataRegistroConvenioEmpresa, empresa);
                 convenio.setNumeroConvenio();
                 ConvenioServices.incluirConvenio(convenio );
                 msg = messages.getString("br.cefetrj.sisgee.incluir_cadastro_empresa_servlet.msg_convenio_cadastrado");
@@ -136,7 +136,7 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
             }
             try {
                 
-                Convenio convenio = new Convenio(request.getParameter("ano"),request.getParameter("numeroConvenio"), dataAssinaturaConvenio, pessoa);
+                Convenio convenio = new Convenio(request.getParameter("ano"),request.getParameter("numeroConvenio"), dataRegistroConvenio, pessoa);
                 convenio.setNumeroConvenio();                
                 ConvenioServices.incluirConvenio(convenio);
                 msg = messages.getString("br.cefetrj.sisgee.incluir_cadastro_empresa_servlet.msg_convenio_cadastrado");
