@@ -27,12 +27,6 @@
             <h5 class="offset-5"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_titulo_renovar" /></h5>		
 
 
-
-            
-
-
-
-
                 <fieldset class="form-group col-auto offset-1">
 
                     <form action="ValidaBuscarConvenioServlet" method="GET" >
@@ -89,17 +83,18 @@
                                     <th scope="col"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_razaoSocial_renovar" /></th>
                                     <th scope="col"><fmt:message key="br.cefetrj.sisgee.19" /></th>
                                     <th scope="col"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_titulo_renovar" /></th>
-
+                                    <th scope="col"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_titulo_alterar" /></th>
+                                    <th scope="col"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_titulo_excluir" /></th>
                                 </tr>
                             </thead>
                             <c:forEach items="${ filtro}" var="b" >
                                 <tr>
-
                                     <td>${not empty b.numeroConvenio ? b.numeroConvenio : null }</td>
                                     <td >${ not empty b.empresa ? b.empresa.razaoSocial: b.pessoa.nome } </td>
                                     <td>${ not empty b.empresa ? b.empresa.cnpjEmpresa : b.pessoa.cpf }</td>
                                     <td><a class="btn btn-sm btn-primary btn-block" href="RenovarConvenioServlet?convenio=${b.numeroConvenio}" ><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_clique_renovar" /></td>
-
+                                    <td><a class="btn btn-sm btn-primary btn-block" href="Alterar_ConvenioServlet?convenio=${b.numeroConvenio}" ><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_clique_alterar" /></td>
+                                    <td><a class="btn btn-sm btn-primary btn-block" href="Excluir_ConvenioServlet?convenio=${b.numeroConvenio}" ><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_clique_excluir" /></td>
 
                                 </tr>
                             </c:forEach>
