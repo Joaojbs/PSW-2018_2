@@ -52,6 +52,7 @@ public class ValidaUtils {
     public static String validaTelefone(String nomeCampo, String param) {
         String msg = "";
         if (param.length() < 10) {
+            
             msg = "br.cefetrj.sisgee.form_termo_estagio_servlet.valor_invalido";
         }
         return msg;

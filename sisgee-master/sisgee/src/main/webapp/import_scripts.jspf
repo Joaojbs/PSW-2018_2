@@ -20,14 +20,15 @@
 	    	$('.AI').hide();
 	    	$(this).val() == 'sim' ? $('.isAI').show("slow") : $('.notAI').show("slow");;
                 var data = new Date;
-                var numero = buscar_numero_convenio_ajax();
+                buscar_numero_convenio_ajax();
+               
                 if ( $("#numeroConvenioEmpresa").val("") && $("#anoEmpresa").val("") ){                    
                     $("#anoEmpresa").val(data.getFullYear());
-                    $("#numeroConvenioEmpresa").val(numero);
+                    $("#numeroConvenioEmpresa").val(); 
                 }
                 if ( $("#numeroConvenio").val("") && $("#ano").val("") ){                    
                     $("#ano").val(data.getFullYear());
-                    $("#numeroConvenio").val(numero);                    
+                    $("#numeroConvenio").val();                    
                 }
                     
                 
@@ -278,8 +279,7 @@
                         }
 	            }
 	        });
-	        
-	        
+	      	        
 	        
 	    });
             <!-- TÉRMINO BOTÃO PARA BUSCA DE CONVENIO POR NOME-->
@@ -316,5 +316,27 @@
 	        }
 	    }
 	    
+            
+            function buscar_numero_convenio_ajax(){
+                                
+                $.ajax({
+                    url: "BuscarNumeroConvenioServlet",
+                    type: 'POST',
+                    data: { "numero": "",                                                
+                            "ajax": "true",
+                          },
+                    success: function( msgs ){
+                    
+                    $("#numeroConvenio").val(msgs.numero);
+                    $("#numeroConvenioEmpresa").val(msgs.numero);                       
+                                                
+                    }
+                });
+            }
+        
+            
+            
+            
+            
 	    
     </script>

@@ -50,7 +50,7 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
         String tipoPessoa = request.getParameter("tipoPessoa");
         boolean pessoaJuridica = true;
-        String cnpjEmpresa = request.getParameter("cnpjEmpresa");
+        String cnpjEmpresa = request.getParameter("cnpjEmpresa").replaceAll("[.|/|-]", "");
         String nomeEmpresa = request.getParameter("nomeEmpresa");
         String agenteIntegracao = request.getParameter("agenteIntegracao");
         
@@ -58,14 +58,14 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
         Date dataAssinaturaConvenioEmpresa = (Date)request.getAttribute("dataAssinaturaConvenioEmpresa");
         
         String emailEmpresa = request.getParameter("emailEmpresa");
-        String telefoneEmpresa = request.getParameter("telefoneEmpresa");
+        String telefoneEmpresa = request.getParameter("telefoneEmpresa").replaceAll("[(|)|-]", "");
         String contatoEmpresa = request.getParameter("contatoEmpresa");
         
        
-        String cpfPessoa = request.getParameter("cpfPessoa");
+        String cpfPessoa = request.getParameter("cpfPessoa").replaceAll("[.|-]", "");
         String nomePessoa = request.getParameter("nomePessoa");
         String emailPessoa = request.getParameter("emailPessoa");
-        String telefonePessoa = request.getParameter("telefonePessoa");
+        String telefonePessoa = request.getParameter("telefonePessoa").replaceAll("[(|)|-]", "");
         
         if (tipoPessoa.equals("nao")) {
             
@@ -77,12 +77,12 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
         Empresa empresa = new Empresa(cnpjEmpresa.replaceAll("[.|/|-]", ""), nomeEmpresa, ehAgente);
         empresa.setContatoEmpresa(contatoEmpresa);
         empresa.setEmailEmpresa(emailEmpresa);
-        empresa.setTelefoneEmpresa(telefoneEmpresa);
+        empresa.setTelefoneEmpresa(telefoneEmpresa.replaceAll("[.|/|-]", ""));
         
 
         Pessoa pessoa = new Pessoa(nomePessoa, cpfPessoa.replaceAll("[.|/|-]", ""));
         pessoa.setEmail(emailPessoa);
-        pessoa.setTelefone(telefonePessoa);
+        pessoa.setTelefone(telefonePessoa.replaceAll("[.|-]", ""));
 
         if (pessoaJuridica) {
             String msg = "";
@@ -100,9 +100,9 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
 
             }
             try {
-                Convenio convenio = new Convenio(new SimpleDateFormat("yyyy").format(dataAssinaturaConvenioEmpresa),gerarNumeroConvenio(), dataAssinaturaConvenioEmpresa, empresa);
+                Convenio convenio = new Convenio(request.getParameter("anoEmpresa"), request.getParameter("numeroConvenioEmpresa"), dataAssinaturaConvenioEmpresa, empresa);
                 convenio.setNumeroConvenio();
-                ConvenioServices.incluirConvenio(convenio);
+                ConvenioServices.incluirConvenio(convenio );
                 msg = messages.getString("br.cefetrj.sisgee.incluir_cadastro_empresa_servlet.msg_convenio_cadastrado");
                 request.setAttribute("msg", msg);
                 request.setAttribute("numeroConvenioGerado", convenio.getNumeroConvenio());
@@ -136,9 +136,8 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
             }
             try {
                 
-                Convenio convenio = new Convenio(new SimpleDateFormat("yyyy").format(dataAssinaturaConvenio),gerarNumeroConvenio(), dataAssinaturaConvenio, pessoa);
-                convenio.setNumeroConvenio();
-                
+                Convenio convenio = new Convenio(request.getParameter("ano"),request.getParameter("numeroConvenio"), dataAssinaturaConvenio, pessoa);
+                convenio.setNumeroConvenio();                
                 ConvenioServices.incluirConvenio(convenio);
                 msg = messages.getString("br.cefetrj.sisgee.incluir_cadastro_empresa_servlet.msg_convenio_cadastrado");
                 request.setAttribute("msg", msg);

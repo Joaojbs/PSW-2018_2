@@ -50,7 +50,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
 
         String tipoPessoa = request.getParameter("tipoPessoa");
         boolean pessoaJuridica = true;
-        String cnpjEmpresa = request.getParameter("cnpjEmpresa");
+        String cnpjEmpresa = request.getParameter("cnpjEmpresa").replaceAll("[.|/|-]", "");
         String nomeEmpresa = request.getParameter("nomeEmpresa");
         String agenteIntegracao = request.getParameter("agenteIntegracao");
 
@@ -61,7 +61,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
         String telefoneEmpresa = request.getParameter("telefoneEmpresa").replaceAll("[(|)|-]", "");
         String contatoEmpresa = request.getParameter("contatoEmpresa");
 
-        String cpfPessoa = request.getParameter("cpfPessoa");
+        String cpfPessoa = request.getParameter("cpfPessoa").replaceAll("[.|-]", "");
         String nomePessoa = request.getParameter("nomePessoa");
         String emailPessoa = request.getParameter("emailPessoa");
         String telefonePessoa = request.getParameter("telefonePessoa").replaceAll("[(|)|-]", "");
@@ -71,6 +71,20 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
 
         boolean isValid = true;
         Integer tamanho = 0;
+        
+        /**
+         * Validação numero e ano do convênio:
+         */
+        if (pessoaJuridica){
+            //Validação do numero e ano do convênio da Pessoa Jurídica:
+            
+        }else{
+             //Validação do numero e ano do convênio da Pessoa Jurídica:
+        
+        }
+        
+        
+        
 
         if (pessoaJuridica) {
             /**
@@ -523,6 +537,28 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             request.getRequestDispatcher("/form_empresa.jsp").forward(request, response);
 
         }
+        
+        
+    /**
+    * Validação do numero convenio
+    */
+    String numeroConvenioEmpresaMsg = "";		
+    request.setAttribute("numeroConvenioEmpresaMsg", ValidaUtils.validaObrigatorio("numeroConvenioEmpresa", request.getParameter("numeroConvenioEmpresa")));
+    ///Veja aqui
+    if (numeroConvenioEmpresaMsg.trim().isEmpty()) {
+        numeroConvenioEmpresaMsg = ValidaUtils.validaTamanho("telefoneEmpresa", 11, telefoneEmpresa);
+
+        if (numeroConvenioEmpresaMsg.trim().isEmpty()) {
+            try {
+                int numero = Integer.parseInt(request.getParameter("numeroConvenioEmpresa"));
+
+            } catch (Exception e) {
+		numeroConvenioEmpresaMsg = "br.cefetrj.sisgee.form_termo_estagio_servlet.valor_invalido";
+            }	
+	}
+    }         
+        
+        
     }
 
 }

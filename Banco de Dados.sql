@@ -1,26 +1,25 @@
 
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (1,'12345678912','exemplo@asdasdas.com','HUMBERTO SANTANA','2192341234');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (2,'23456789123','exemplo@asdasdas.com','OTTO WALTER FRIEDRICH KNEUBUHLER','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (3,'78945612378','exemplo@asdasdas.com','ANTONIO CARLOS BARROS FORMIGA','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (4,'45678912348','exemplo@asdasdas.com','MARIA LOURDES','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (5,'32165498798','exemplo@asdasdas.com','EDGAR SILVEIRA','2112313212');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (6,'98765432145','','','2125274185');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (7,'65498732145','','','2126324567');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (8,'95162984754','','','2135768951');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (9,'10524578952','','','2132165498');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (10,'85296374128','','','2136385278');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (11,'85274136989','','','2155296547');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (12,'74196325874','','','2126385274');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (13,'15935785245','','','2135768456');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (14,'15975365478','','','2155296335');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (15,'54756982546','','','2165245678');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (16,'15975325875','','','2158765425');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (17,'15975385287','','','2165295475');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (18,'15948753258','','','2175295475');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (19,'74187569878','','','2145678985');
-insert into pessoa (idpessoa, cpf, email, nome,telefone) values (20,'95162847536','','','2165245678');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (1,'12345678912','humberto@gmail.com','HUMBERTO SANTANA','2192341234');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (2,'23456789123','otto@gmail.com','OTTO WALTER FRIEDRICH KNEUBUHLER','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (3,'78945612378','antonio@gmail.com','ANTONIO CARLOS BARROS FORMIGA','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (4,'45678912348','maria@gmail.com','MARIA LOURDES','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (5,'32165498798','edgar@gmail.com','EDGAR SILVEIRA','2112313212');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (6,'98765432145','joao@gmail.com','João Batista da Silva','2125274185');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (7,'65498732145','rita@gmail.com','Rita Maria de Casia','2126324567');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (8,'95162984754','anamaria@gmail.com','Ana maria da Silva','2135768951');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (9,'10524578952','fabiana@gmail.com','Fabiana da Silva','2132165498');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (10,'85296374128','zuleica@gmail.com','Zuleica de Souza e Silva','2136385278');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (11,'85274136989','socorro@gmail.com','Maria do Socorro da Silva','2155296547');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (12,'74196325874','vania@gmail.com','Vania Maria de Souza','2126385274');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (13,'15935785245','patricia@gmail.com','Patricia Rosa Pereira','2135768456');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (14,'15975365478','rafael@gmail.com','Rafael da Silva','2155296335');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (15,'54756982546','anderson@gmail.com','Anderson de Oliveira da Silva','2165245678');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (16,'15975325875','washington@gmail.com','Washington Ramos','2158765425');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (17,'15975385287','suelem@gmail.com','Suelem de Oliveira','2165295475');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (18,'15948753258','luiz@gmail.com','Luiz de Oliveira da Silva','2175295475');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (19,'74187569878','luciano@gmail.com','Luciano da Silva','2145678985');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (20,'95162847536','lais@gmail.com','Lais de Souza','2165245678');
 
-Campus:
 
 insert into campus (idcampus, nomecampus) values (1,'Maracanã');
 insert into campus (idcampus, nomecampus) values (2,'Angra dos Reis');
@@ -30,9 +29,7 @@ insert into campus (idcampus, nomecampus) values (5,'Nova Friburgo');
 insert into campus (idcampus, nomecampus) values (6,'Nova Iguaçu');
 insert into campus (idcampus, nomecampus) values (7,'Petrópolis');
 insert into campus (idcampus, nomecampus) values (8,'Valença');
-insert into campus (idcampus, nomecampus) values ();
 
-Curso:
 
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(1,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',1);
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(2,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',2);
@@ -45,7 +42,103 @@ insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(8,'B
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(9,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',1);
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(10,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',3);
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(11,'Licenciatura em Física','Licenciatura em Física',5);
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(13,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(14,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(15,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(16,'Bacharelado em Administração','Bacharelado em Administração',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(17,'Bacharelado em Engenharia de Controle e Automação','Bacharelado em Engenharia de Controle e Automação Industrial',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(18,'Bacharelado em Engenharia Produção','Bacharelado em Engenharia Produção',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(19,'Bacharelado em Engenharia de Telecomunições','Bacharelado em Engenharia de Telecomunições',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(20,'Bacharelado em Engenharia Elétrica','Bacharelado em Engenharia Elétrica',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(21,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(22,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',2);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(23,'Licenciatura em Física','Licenciatura em Física',2);
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(24,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(25,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(26,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(27,'Bacharelado em Administração','Bacharelado em Administração',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(28,'Bacharelado em Engenharia de Controle e Automação','Bacharelado em Engenharia de Controle e Automação Industrial',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(29,'Bacharelado em Engenharia Produção','Bacharelado em Engenharia Produção',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(30,'Bacharelado em Engenharia de Telecomunições','Bacharelado em Engenharia de Telecomunições',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(31,'Bacharelado em Engenharia Elétrica','Bacharelado em Engenharia Elétrica',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(32,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(33,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',3);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(34,'Licenciatura em Física','Licenciatura em Física',3);
+
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(35,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(36,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(37,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(38,'Bacharelado em Administração','Bacharelado em Administração',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(39,'Bacharelado em Engenharia de Controle e Automação','Bacharelado em Engenharia de Controle e Automação Industrial',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(40,'Bacharelado em Engenharia Produção','Bacharelado em Engenharia Produção',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(41,'Bacharelado em Engenharia de Telecomunições','Bacharelado em Engenharia de Telecomunições',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(42,'Bacharelado em Engenharia Elétrica','Bacharelado em Engenharia Elétrica',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(43,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(44,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',4);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(45,'Licenciatura em Física','Licenciatura em Física',4);
+
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(46,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(47,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(48,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(49,'Bacharelado em Administração','Bacharelado em Administração',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(50,'Bacharelado em Engenharia de Controle e Automação','Bacharelado em Engenharia de Controle e Automação Industrial',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(51,'Bacharelado em Engenharia Produção','Bacharelado em Engenharia Produção',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(52,'Bacharelado em Engenharia de Telecomunições','Bacharelado em Engenharia de Telecomunições',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(53,'Bacharelado em Engenharia Elétrica','Bacharelado em Engenharia Elétrica',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(54,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(55,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',5);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(56,'Licenciatura em Física','Licenciatura em Física',5);
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(57,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(58,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(59,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(60,'Bacharelado em Administração','Bacharelado em Administração',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(61,'Bacharelado em Engenharia de Controle e Automação','Bacharelado em Engenharia de Controle e Automação Industrial',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(62,'Bacharelado em Engenharia Produção','Bacharelado em Engenharia Produção',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(63,'Bacharelado em Engenharia de Telecomunições','Bacharelado em Engenharia de Telecomunições',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(64,'Bacharelado em Engenharia Elétrica','Bacharelado em Engenharia Elétrica',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(65,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(66,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',6);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(67,'Licenciatura em Física','Licenciatura em Física',6);
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(68,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(69,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(70,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(71,'Bacharelado em Administração','Bacharelado em Administração',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(72,'Bacharelado em Engenharia de Controle e Automação','Bacharelado em Engenharia de Controle e Automação Industrial',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(73,'Bacharelado em Engenharia Produção','Bacharelado em Engenharia Produção',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(74,'Bacharelado em Engenharia de Telecomunições','Bacharelado em Engenharia de Telecomunições',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(75,'Bacharelado em Engenharia Elétrica','Bacharelado em Engenharia Elétrica',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(76,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(77,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',7);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(78,'Licenciatura em Física','Licenciatura em Física',7);
+
+
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(79,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(80,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(81,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(82,'Bacharelado em Administração','Bacharelado em Administração',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(83,'Bacharelado em Engenharia de Controle e Automação','Bacharelado em Engenharia de Controle e Automação Industrial',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(84,'Bacharelado em Engenharia Produção','Bacharelado em Engenharia Produção',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(85,'Bacharelado em Engenharia de Telecomunições','Bacharelado em Engenharia de Telecomunições',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(86,'Bacharelado em Engenharia Elétrica','Bacharelado em Engenharia Elétrica',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(87,'Bacharelado em Engenharia Mecânica','Bacharelado em Engenharia Mecânica',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(88,'Bacharelado Sistemas de informação','Bacharelado Sistemas de informação',8);
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(89,'Licenciatura em Física','Licenciatura em Física',8);
+
+
+
+
+
+
+
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values();
+
+
 
 Agente de Integração:
 insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values (1, '8334959000175', 'Abr Vencer R. Humanos');

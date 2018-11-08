@@ -228,32 +228,7 @@
                 
             });
             
-          
-            function buscar_numero_convenio_ajax(){
-                $("#numeroConvenio").html('');
-                $("#numeroConvenioEmpresa").html('');
-                
-                $.ajax({
-                    url: "BuscarNumeroConvenioServlet",
-                    type: 'POST',
-                    data: { "numeroConvenio": $("#numeroConvenio").val(),
-                            "numeroConvenioEmpresa": $("#numeroConvenio").val(),                            
-                            "ajax": "true",
-                          },
-                    success: function( msgs ) {
-                        if(msgs.sucess === true){
-                            location.href = 'BuscarNumeroConvenioServlet';
-                        }
-                        
-                    }
-                });
-            }
-        
-            
-            
-            
-            
-            
+                  
         </script>
 
 
