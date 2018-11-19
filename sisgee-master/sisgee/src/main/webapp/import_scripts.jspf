@@ -6,7 +6,7 @@
 	        </c:if>
 	    });
 	    
-	    //$('.isAI, .notAI').hide();
+	   
 	    
 	    $('.isAgenteChk').change(function(){
 	    	$('.AI').hide();
@@ -20,15 +20,17 @@
 	    	$('.AI').hide();
 	    	$(this).val() == 'sim' ? $('.isAI').show("slow") : $('.notAI').show("slow");;
                 var data = new Date;
-                buscar_numero_convenio_ajax();
-               
-                if ( $("#numeroConvenioEmpresa").val("") && $("#anoEmpresa").val("") ){                    
+                           
+                if ( $("#numeroConvenioEmpresa").val()=="" && $("#anoEmpresa").val()=="" ){                    
                     $("#anoEmpresa").val(data.getFullYear());
-                    $("#numeroConvenioEmpresa").val(); 
+                    buscar_numero_convenio_ajax();
+                    
+                                       
                 }
-                if ( $("#numeroConvenio").val("") && $("#ano").val("") ){                    
+                if ( $("#numeroConvenio").val()=="" && $("#ano").val()=="" ){                    
                     $("#ano").val(data.getFullYear());
-                    $("#numeroConvenio").val();                    
+                    buscar_numero_convenio_ajax();
+                                      
                 }
                     
                 

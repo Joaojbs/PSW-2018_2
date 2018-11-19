@@ -33,8 +33,8 @@ import javax.servlet.ServletResponse;
  * @since 1.0
  *
  */
-@WebServlet("/ValidaCadastroEmpresaServlet")
-public class ValidaCadastroEmpresaServlet extends HttpServlet {
+@WebServlet("/ValidaCadastroEmpresaAlterarServlet")
+public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -664,7 +664,7 @@ public class ValidaCadastroEmpresaServlet extends HttpServlet {
             String msg = messages.getString("br.cefetrj.sisgee.valida_cadastro_empresa_servlet.msg_atencao");
             request.setAttribute("msg", msg);
 
-            request.getRequestDispatcher("/form_empresa.jsp").forward(request, response);
+            request.getRequestDispatcher("/form_empresa_alterar.jsp").forward(request, response);
 
         }
         
