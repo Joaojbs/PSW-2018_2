@@ -1,5 +1,6 @@
 package br.cefetrj.sisgee.view.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -344,4 +345,12 @@ public class ValidaUtils {
         }
         return msg;
     }
+    
+    
+    public static String  getData(Date data) {
+        SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+        return formatar.format(data);      
+    }
+    
+    
 }

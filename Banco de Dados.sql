@@ -19,6 +19,7 @@ insert into pessoa (idpessoa, cpf, email, nome,telefone) values (17,'15975385287
 insert into pessoa (idpessoa, cpf, email, nome,telefone) values (18,'15948753258','luiz@gmail.com','Luiz de Oliveira da Silva','2175295475');
 insert into pessoa (idpessoa, cpf, email, nome,telefone) values (19,'74187569878','luciano@gmail.com','Luciano da Silva','2145678985');
 insert into pessoa (idpessoa, cpf, email, nome,telefone) values (20,'95162847536','lais@gmail.com','Lais de Souza','2165245678');
+insert into pessoa (idpessoa, cpf, email, nome,telefone) values (21,'88162847536','rui@gmail.com','Rui de Souza','2165865678');
 
 --CAMPUS
 insert into campus (idcampus, nomecampus) values (1,'Maracanã');
@@ -31,6 +32,7 @@ insert into campus (idcampus, nomecampus) values (7,'Petrópolis');
 insert into campus (idcampus, nomecampus) values (8,'Valença');
 
 --CURSO, SEPARADO POR campus_idcampus
+insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(90,'Bacharelado em ciência da coputação','Bacharelado em ciência da coputação',1);
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(1,'Bacharelado em Engenharia Civil','Bacharelado em Engenharia Civil',1);
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(2,'Bacharelado em Engenharia Ambiental','Bacharelado em Engenharia Ambiental',2);
 insert into curso (idcurso, codigocurso, nomecurso, campus_idcampus) values(3,'Bacharelado em Engenharia da Computação','Bacharelado em Engenharia da Computação',3);
@@ -134,6 +136,22 @@ insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa
 insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 3, '1431627ENG', 'Gradualção', 3, 3);
 insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 4, '1491321ENG', 'Gradualção', 4, 4);
 insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 5, '1123456ENG', 'Gradualção', 5, 5);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 6, '1610334BCC', 'Gradualção', 90, 6);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 7, '1610346BCC', 'Gradualção', 90, 7);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 8, '1610456BCC', 'Gradualção', 90, 8);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 9, '1444456BCC', 'Gradualção', 90, 9);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 10, '1696456BCC', 'Gradualção', 90, 10);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 11, '1576789BCC', 'Gradualção', 90, 11);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 12, '1576899BCC', 'Gradualção', 90, 12);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 13, '1576999BCC', 'Gradualção', 90, 13);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 14, '1710334BCC', 'Gradualção', 90, 14);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 15, '1810334BCC', 'Gradualção', 90, 15);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 16, '1610328BCC', 'Gradualção', 90, 16);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 17, '1720329BCC', 'Gradualção', 90, 17);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 18, '2010334BCC', 'Gradualção', 90, 18);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 19, '2110334BCC', 'Gradualção', 90, 19);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 20, '2110335BCC', 'Gradualção', 90, 20);
+insert into Aluno (idaluno, matricula, tipoaluno, curso_idcurso, pessoa_idpessoa) values ( 21, '2110224BCC', 'Gradualção', 90, 21);
 
 /* SERÁ QUE FOI MODIFICADA OU CONFUNDIDA COM A TABELA ESTUDANTE?
 	A TABELA ALUNO NÃO POSSUI NOME, NEM NOME DO CAMPO. 
@@ -209,8 +227,25 @@ insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (69, '
 insert into Aluno (idAluno, matricula, nome,nomecampus, nomecurso) values (70, '161033BCC', 'ARTHUR JULIO', 'MARACANÃ', 'CIÊNCIA DA COMPUTAÇÃO');
 */
 
+
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (1, 'ALEXANDRE LINHARES');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (2, 'ALEXANDRE GUILHERME');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (3, 'MANOEL TOBIAS');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (4, 'DIOGO ALVES');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (5, 'LUIZ DA SILVA LIMA');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (6, 'RITA DA SILVA SOUZA');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (7, 'SANDRA DE OLIVEIRA SOUZA');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (8, 'MARIA JOSÉ DA CONCEIÇÃO');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (9, 'MARIZA DA SILVA');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (10, 'SHEYLA MARIA');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (11, 'RENATO FERNANDO');
+insert into ProfessorOrientador (idProfessorOrientador, nomeProfessorOrientador) values (12, 'RENATA OLIVEIRA DA SILVA');
+
+
 -- Agente de Integração:
 insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values (1, '8334959000175', 'Abr Vencer R. Humanos');
+insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values (1, '8334959000175', 'Abr Vencer R. Humanos');
+insert into agenteintegracao (idagenteintegracao, cnpjagenteintegracao, nomeagenteintegracao) values ();
 
 --Empresa:
 insert into empresa (idempresa, agenteintegracao, cnpjempresa, contatoempresa, emailempresa, razaosocial, telefoneempresa)
@@ -235,6 +270,7 @@ insert into TermoEstagio (idTermoEstagio, dataInicioTermoEstagio, dataFimTermoEs
 --CONVENIO
 /* FOI MODIFICADA?
 	TABELA CONVENIO NAO POSSUI CAMPO cpf_cnpj, eativo, isagenteintegracao, ETC
+	
 insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (1, '12345654321948', '2017-02-20' , true, 'googlellc@gmail.com', false, 'GOOGLE LLC', '234302018', 'RENATA DA SILVA', '2125616561', false);
 insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (2, '18473674859378', '2017-08-04' , true, 'sony@gmail.com', false, 'SONY SONY SONY SONY SONY SONY SONY SONY SONY SONYY', '3334302018', 'MARCOS SONY', '2144444444', false);
 insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (3, '83746382726383', '2017-06-02' , true, 'engenharisolucoes@gmail.com', false, 'ENGENHARIA E SOLUÇÕES', '234302018', 'FERNANDO VIEIRA', '2137483451', false);
@@ -264,4 +300,3 @@ insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isage
 insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (15, '165259937571', '2018-07-06' , true, 'googlellc@gmail.com', false, 'CONVENIO GRANDE', '4412342018', 'J', '2125616561', false);
 insert into Convenio (idConvenio, cpf_cnpj, dataassinatura, eativo, email, isagenteintegracao, nomeconveniado, numeroConvenio, pessoacontato, telefone, ispessoajuridica) values (16, '16525994799', '2018-07-06' , true, 'googlellc@gmail.com', false, 'JOSÉ OLIVEIRA BONIFÁCIO', '0511232018', 'J', '2125616561', false);
 */
-
