@@ -29,25 +29,25 @@
                     ${periodoMsg}
                 </div>
             </c:if>  
-            
+
             <p class="tituloForm">
             <h5>		
                 <fmt:message key = "br.cefetrj.sisgee.resources.form.registroTermoAditivo"/>
             </h5>		
-            
-            
+
+
             <form action=BuscaTermoAditivoServlet method="post">
 
                 <fieldset class="form-group dadosAluno" >
                     <%@include file="import_busca_aluno.jspf"%>
-                    
+
                     <div class="container">					
 
                         <button id="btnListarAditivo" type="submit" class="btn btn-primary" ><fmt:message key = "br.cefetrj.sisgee.resources.form.listarAditivos"/></button>
-                        <a id="btnListarAditivo" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><fmt:message key = "br.cefetrj.sisgee.resources.form.rescisao"/></a>
+                        <button id="btnEncerrarAditivo" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><fmt:message key = "br.cefetrj.sisgee.resources.form.rescisao"/></button>
                         <button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'index.jsp'" ><fmt:message key = "br.cefetrj.sisgee.resources.form.cancelar"/></button>
                     </div>				
-                <input type="hidden" name="termoAditivo" id="termoAditivo" value="${ param.termoAditivo }">
+                    <input type="hidden" name="termoAditivo" id="termoAditivo" value="${ param.termoAditivo }">
                 </fieldset>
             </form>
         </div>
@@ -161,12 +161,12 @@
                     <input type="hidden" name="idAlunoAdt" value="${param.matricula}">
 
 
-                    <button type="submit" id="btnNovoAditivo" class="btn btn-secondary" ${ empty param.nome ? 'disabled' : '' }><fmt:message key = "br.cefetrj.sisgee.resources.form.novo_aditivo"/></button>
+                    <button type="submit" id="btnNovoAditivo" class="btn btn-primary" ${ empty param.nome ? 'disabled' : '' }><fmt:message key = "br.cefetrj.sisgee.resources.form.novo_aditivo"/></button>
                     <button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'index.jsp'"><fmt:message key = "br.cefetrj.sisgee.resources.form.cancelar"/></button>			
                 </form>
-                    
+
             </c:if>
-                
+
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -177,40 +177,40 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                            <div class="modal-body">
-                                <form action="FormTermoRescisaoServlet" method="post">
-                                    <input type="hidden" id="idAluno" name="idAluno" value="${ param.idAluno }">
-                                        <div class="container">
-                                            <div class="col-xs-1" align="center">
-                                                <label for="dataRescisao"><fmt:message key = "br.cefetrj.sisgee.resources.form_termo_rescisao.data_rescisao"/></label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control ${ not empty dataTermoRescisaoMsg ? 'is-invalid': not empty periodoMsg ? 'is-invalid' : 'is-valid' }" id="dataRescisao"  name="dataTermoRescisao" value="${ param.dataRescisao }" >
-                                                    <c:if test="${ not empty dataTermoRescisaoMsg }">
-                                                        <div class="invalid-feedback">${ dataTermoRescisaoMsg }</div>
-                                                    </c:if>
-                                                </div>
-                                            </div>					
+                        <div class="modal-body">
+                            <form action="FormTermoRescisaoServlet" method="post">
+                                <input type="hidden" id="idAluno" name="idAluno" value="${ param.idAluno }">
+                                <div class="container">
+                                    <div class="col-xs-1" align="center">
+                                        <label for="dataRescisao"><fmt:message key = "br.cefetrj.sisgee.resources.form_termo_rescisao.data_rescisao"/></label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control ${ not empty dataTermoRescisaoMsg ? 'is-invalid': not empty periodoMsg ? 'is-invalid' : 'is-valid' }" id="dataRescisao"  name="dataTermoRescisao" value="${ param.dataRescisao }" >
+                                            <c:if test="${ not empty dataTermoRescisaoMsg }">
+                                                <div class="invalid-feedback">${ dataTermoRescisaoMsg }</div>
+                                            </c:if>
                                         </div>
-                                        <button type="submit" class="btn btn-primary"> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_salvar"/></button>
-                                        <!--<button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'form_termo_aditivo.jsp'"><i class="far fa-times-circle"></i> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_cancelar"/></button>-->		
-                                </form>                                   
-                            </div>
+                                    </div>					
+                                </div>
+                                <button type="submit" class="btn btn-primary"> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_salvar"/></button>
+                                <!--<button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'form_termo_aditivo.jsp'"><i class="far fa-times-circle"></i> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_cancelar"/></button>-->		
+                            </form>                                   
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><fmt:message key = "br.cefetrj.sisgee.resources.form.fechar"/></button>
                         </div>
                     </div>
                 </div>
             </div>
-                      
-                        
-                        
-                        
-                     
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
+
+
+
+
         </div>
         <%@include file="import_footer.jspf"%>
         <%@include file="import_finalbodyscripts.jspf"%>
@@ -249,8 +249,8 @@
 
                 }
             });
-            
-            function termoAditivo(){
+
+            function termoAditivo() {
                 document.getElementById("termoAditivo").value = "sim";
             }
         </script>
