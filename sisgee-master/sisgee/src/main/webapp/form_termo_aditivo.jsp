@@ -55,6 +55,7 @@
             <div class="container">
                 <div class="table-responsive">
                     <table class="table table-info table-bordered container table-hover table-striped">
+                        <thead>Incluir Novo Aditivo</thead>
                         <tr>
                             <th><fmt:message key="br.cefetrj.sisgee.21" /></th>
                             <th><fmt:message key="br.cefetrj.sisgee.22" /></th>
@@ -78,7 +79,7 @@
                             </tr>
                             <c:forEach items="${b.getTermosAditivos()}" var="c">
                                 <tr>
-                                    <td>${c.getTipoAditivo()}</td>
+                                    <td><label>Aditivo de&nbsp;</label>${c.getTipoAditivo()}</td>
                                     <td>--</td>
                                     <td>${c.getDataCadastramentoTermoAditivo2()}</td>
                                     <td>${c.getDataFimTermoAditivo2()}</td>
