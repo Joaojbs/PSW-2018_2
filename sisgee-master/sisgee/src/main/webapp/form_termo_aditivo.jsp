@@ -77,9 +77,9 @@
                                 <td>${b.getDataFimTermoEstagio2()}</td>
                                 <td>${b.getConvenio().pegaCpf()}</td>
                                 <td>${b.getConvenio().pegaNome()}</td>
-                                <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ide=${b.idTermoEstagio}&matricula=${param.matricula}" >Visualizar</td>
-                                <td><button class="btn btn-sm btn-primary btn-block" >Alterar</button></td>
-                                <td><button class="btn btn-sm btn-primary btn-block"  >Excluir</button></td>
+                                <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ide=${b.idTermoEstagio}&matricula=${param.matricula}" />Visualizar</td>
+                                <td><a class="btn btn-sm btn-primary btn-block" href="AlteraTermoEstagioServlet?ide=${b.idTermoEstagio}&matricula=${param.matricula}" />Alterar</td>
+                                <td><a class="btn btn-sm btn-primary btn-block"  href="ExcluiTermoEstagioServlet?ide=${b.idTermoEstagio}" />Excluir</td>
                             </tr>
                             <c:forEach items="${b.getTermosAditivos()}" var="c">
                                 <tr>
@@ -89,9 +89,9 @@
                                     <td>${c.getDataFimTermoAditivo2()}</td>
                                     <td>${b.getConvenio().pegaCpf()}</td>
                                     <td>${b.getConvenio().pegaNome()}</td>
-                                    <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ida=${c.idTermoAditivo}&ide=${b.idTermoEstagio}&matricula=${param.matricula}" >Visualizar</td>
-                                    <td><button class="btn btn-sm btn-primary btn-block"  >Alterar</button></td>
-                                    <td><button class="btn btn-sm btn-primary btn-block"  >Excluir</button></td>
+                                    <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ida=${c.idTermoAditivo}&ide=${b.idTermoEstagio}&matricula=${param.matricula}" />Visualizar</td>
+                                    <td><a class="btn btn-sm btn-primary btn-block" href="AlteraAditivoServlet?ida=${c.idTermoAditivo}&matricula=${param.matricula}" />Alterar</td>
+                                    <td><a class="btn btn-sm btn-primary btn-block"  href="ExcluiAditivoServlet?ida=${c.idTermoAditivo}" />Excluir</td>
                                 </tr>   
                             </c:forEach>
                         </c:forEach>
