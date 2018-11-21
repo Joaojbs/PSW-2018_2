@@ -111,7 +111,7 @@ public class AlteraAditivoServlet extends HttpServlet {
          */
         req.setAttribute("pfnomeprofessor", termoEstagio.getProfessorOrientadorVisu(termoAditivo));
 
-        req.getRequestDispatcher("/form_termo_Visualiza.jsp").forward(req, resp);
+        req.getRequestDispatcher("/form_termo_altera_aditivo.jsp").forward(req, resp);
     }
 
 }

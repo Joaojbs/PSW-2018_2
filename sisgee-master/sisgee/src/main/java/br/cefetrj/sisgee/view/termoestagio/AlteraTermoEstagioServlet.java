@@ -78,7 +78,6 @@ public class AlteraTermoEstagioServlet extends HttpServlet {
          * Dados de Valor Bolsa
          */
         req.setAttribute("vavalorBolsa", termoEstagio.getValorBolsa());
-        System.out.println("aqui" + termoEstagio.getValorBolsa());
         /**
          * Dados de Local
          */
@@ -102,7 +101,7 @@ public class AlteraTermoEstagioServlet extends HttpServlet {
          */
         req.setAttribute("pfnomeprofessor", termoEstagio.getProfessorOrientador());
 
-        req.getRequestDispatcher("/form_termo_aditivo.jsp").forward(req, resp);
+        req.getRequestDispatcher("/form_termo_altera.jsp").forward(req, resp);
     }
 
     @Override
