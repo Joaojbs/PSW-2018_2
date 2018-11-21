@@ -63,7 +63,9 @@
                             <th><fmt:message key="br.cefetrj.sisgee.10" /></th>
                             <th><fmt:message key="br.cefetrj.sisgee.13" /></th>
                             <th><fmt:message key="br.cefetrj.sisgee.12" /></th>
-                            <th>Visualizar</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
 
                         </tr>
 
@@ -76,6 +78,8 @@
                                 <td>${b.getConvenio().pegaCpf()}</td>
                                 <td>${b.getConvenio().pegaNome()}</td>
                                 <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ide=${b.idTermoEstagio}&matricula=${param.matricula}" >Visualizar</td>
+                                <td><button class="btn btn-sm btn-primary btn-block" >Alterar</button></td>
+                                <td><button class="btn btn-sm btn-primary btn-block"  >Excluir</button></td>
                             </tr>
                             <c:forEach items="${b.getTermosAditivos()}" var="c">
                                 <tr>
@@ -86,6 +90,8 @@
                                     <td>${b.getConvenio().pegaCpf()}</td>
                                     <td>${b.getConvenio().pegaNome()}</td>
                                     <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ida=${c.idTermoAditivo}&ide=${b.idTermoEstagio}&matricula=${param.matricula}" >Visualizar</td>
+                                    <td><button class="btn btn-sm btn-primary btn-block"  >Alterar</button></td>
+                                    <td><button class="btn btn-sm btn-primary btn-block"  >Excluir</button></td>
                                 </tr>   
                             </c:forEach>
                         </c:forEach>
@@ -165,8 +171,8 @@
                     <button type="submit" id="btnNovoAditivo" class="btn btn-primary" ${ empty param.nome ? 'disabled' : '' }><fmt:message key = "br.cefetrj.sisgee.resources.form.novo_aditivo"/></button>
                     <button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'index.jsp'"><fmt:message key = "br.cefetrj.sisgee.resources.form.cancelar"/></button>			
                 </form>
-
-            </c:if>
+            </div>
+        </c:if>
 
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -204,15 +210,6 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-        </div>
         <%@include file="import_footer.jspf"%>
         <%@include file="import_finalbodyscripts.jspf"%>
         <script type="text/javascript">
