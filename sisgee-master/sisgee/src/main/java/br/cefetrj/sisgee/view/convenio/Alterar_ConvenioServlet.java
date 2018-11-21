@@ -39,6 +39,7 @@ public class Alterar_ConvenioServlet extends HttpServlet {
         
         int pos = req.getParameter("convenio").indexOf("/");
         //Substring iniciando em 0 até posição do caracter especial
+      
         
         String numeroConvenio = req.getParameter("convenio").substring(0,pos);
         

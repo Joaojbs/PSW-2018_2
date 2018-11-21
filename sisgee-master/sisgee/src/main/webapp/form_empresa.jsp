@@ -22,7 +22,7 @@
            
             <p class="tituloForm">
             <h5 class="offset-5"><fmt:message key="br.cefetrj.sisgee.form_empresa.msg_titulo" /></h5>	           
-            <form id="meuForm" action="ValidaCadastroEmpresaAlterarServlet" method="POST">
+            <form id="meuForm" action="ValidaCadastroEmpresaServlet" method="POST">
                 <fieldset class="form-group">
 
 

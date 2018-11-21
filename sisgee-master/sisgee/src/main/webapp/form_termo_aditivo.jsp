@@ -29,25 +29,25 @@
                     ${periodoMsg}
                 </div>
             </c:if>  
-
+            
             <p class="tituloForm">
             <h5>		
                 <fmt:message key = "br.cefetrj.sisgee.resources.form.registroTermoAditivo"/>
             </h5>		
-
-
+            
+            
             <form action=BuscaTermoAditivoServlet method="post">
 
                 <fieldset class="form-group dadosAluno" >
                     <%@include file="import_busca_aluno.jspf"%>
-
+                    
                     <div class="container">					
 
                         <button id="btnListarAditivo" type="submit" class="btn btn-primary" ><fmt:message key = "br.cefetrj.sisgee.resources.form.listarAditivos"/></button>
-                        <button id="btnEncerrarAditivo" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><fmt:message key = "br.cefetrj.sisgee.resources.form.rescisao"/></button>
+                        <a id="btnListarAditivo" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><fmt:message key = "br.cefetrj.sisgee.resources.form.rescisao"/></a>
                         <button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'index.jsp'" ><fmt:message key = "br.cefetrj.sisgee.resources.form.cancelar"/></button>
                     </div>				
-                    <input type="hidden" name="termoAditivo" id="termoAditivo" value="${ param.termoAditivo }">
+                <input type="hidden" name="termoAditivo" id="termoAditivo" value="${ param.termoAditivo }">
                 </fieldset>
             </form>
         </div>
@@ -55,7 +55,6 @@
             <div class="container">
                 <div class="table-responsive">
                     <table class="table table-info table-bordered container table-hover table-striped">
-                        <thead>Incluir Novo Aditivo</thead>
                         <tr>
                             <th><fmt:message key="br.cefetrj.sisgee.21" /></th>
                             <th><fmt:message key="br.cefetrj.sisgee.22" /></th>
@@ -63,9 +62,7 @@
                             <th><fmt:message key="br.cefetrj.sisgee.10" /></th>
                             <th><fmt:message key="br.cefetrj.sisgee.13" /></th>
                             <th><fmt:message key="br.cefetrj.sisgee.12" /></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th>Visualizar</th>
 
                         </tr>
 
@@ -77,21 +74,17 @@
                                 <td>${b.getDataFimTermoEstagio2()}</td>
                                 <td>${b.getConvenio().pegaCpf()}</td>
                                 <td>${b.getConvenio().pegaNome()}</td>
-                                <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ide=${b.idTermoEstagio}&matricula=${param.matricula}" />Visualizar</td>
-                                <td><a class="btn btn-sm btn-primary btn-block" href="AlteraTermoEstagioServlet?ide=${b.idTermoEstagio}&matricula=${param.matricula}" />Alterar</td>
-                                <td><a class="btn btn-sm btn-primary btn-block"  href="ExcluiTermoEstagioServlet?ide=${b.idTermoEstagio}" />Excluir</td>
+                                <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ide=${b.idTermoEstagio}&matricula=${param.matricula}" >Visualizar</td>
                             </tr>
                             <c:forEach items="${b.getTermosAditivos()}" var="c">
                                 <tr>
-                                    <td><label>Aditivo de&nbsp;</label>${c.getTipoAditivo()}</td>
+                                    <td>${c.getTipoAditivo()}</td>
                                     <td>--</td>
                                     <td>${c.getDataCadastramentoTermoAditivo2()}</td>
                                     <td>${c.getDataFimTermoAditivo2()}</td>
                                     <td>${b.getConvenio().pegaCpf()}</td>
                                     <td>${b.getConvenio().pegaNome()}</td>
-                                    <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ida=${c.idTermoAditivo}&ide=${b.idTermoEstagio}&matricula=${param.matricula}" />Visualizar</td>
-                                    <td><a class="btn btn-sm btn-primary btn-block" href="AlteraAditivoServlet?ida=${c.idTermoAditivo}&ide=${b.idTermoEstagio}&matricula=${param.matricula}" />Alterar</td>
-                                    <td><a class="btn btn-sm btn-primary btn-block"  href="ExcluiAditivoServlet?ida=${c.idTermoAditivo}" />Excluir</td>
+                                    <td><a class="btn btn-sm btn-primary btn-block" href="VisualizarTermoEAditivo?ida=${c.idTermoAditivo}&ide=${b.idTermoEstagio}&matricula=${param.matricula}" >Visualizar</td>
                                 </tr>   
                             </c:forEach>
                         </c:forEach>
@@ -168,12 +161,12 @@
                     <input type="hidden" name="idAlunoAdt" value="${param.matricula}">
 
 
-                    <button type="submit" id="btnNovoAditivo" class="btn btn-primary" ${ empty param.nome ? 'disabled' : '' }><fmt:message key = "br.cefetrj.sisgee.resources.form.novo_aditivo"/></button>
+                    <button type="submit" id="btnNovoAditivo" class="btn btn-secondary" ${ empty param.nome ? 'disabled' : '' }><fmt:message key = "br.cefetrj.sisgee.resources.form.novo_aditivo"/></button>
                     <button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'index.jsp'"><fmt:message key = "br.cefetrj.sisgee.resources.form.cancelar"/></button>			
                 </form>
-            </div>
-        </c:if>
-
+                    
+            </c:if>
+                
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -184,32 +177,41 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <form action="FormTermoRescisaoServlet" method="post">
-                                <input type="hidden" id="idAluno" name="idAluno" value="${ param.idAluno }">
-                                <div class="container">
-                                    <div class="col-xs-1" align="center">
-                                        <label for="dataRescisao"><fmt:message key = "br.cefetrj.sisgee.resources.form_termo_rescisao.data_rescisao"/></label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control ${ not empty dataTermoRescisaoMsg ? 'is-invalid': not empty periodoMsg ? 'is-invalid' : 'is-valid' }" id="dataRescisao"  name="dataTermoRescisao" value="${ param.dataRescisao }" >
-                                            <c:if test="${ not empty dataTermoRescisaoMsg }">
-                                                <div class="invalid-feedback">${ dataTermoRescisaoMsg }</div>
-                                            </c:if>
+                            <div class="modal-body">
+                                <form action="FormTermoRescisaoServlet" method="post">
+                                    <input type="hidden" id="idAluno" name="idAluno" value="${ param.idAluno }">
+                                        <div class="container">
+                                            <div class="col-xs-1" align="center">
+                                                <label for="dataRescisao"><fmt:message key = "br.cefetrj.sisgee.resources.form_termo_rescisao.data_rescisao"/></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control ${ not empty dataTermoRescisaoMsg ? 'is-invalid': not empty periodoMsg ? 'is-invalid' : 'is-valid' }" id="dataRescisao"  name="dataTermoRescisao" value="${ param.dataRescisao }" >
+                                                    <c:if test="${ not empty dataTermoRescisaoMsg }">
+                                                        <div class="invalid-feedback">${ dataTermoRescisaoMsg }</div>
+                                                    </c:if>
+                                                </div>
+                                            </div>					
                                         </div>
-                                    </div>					
-                                </div>
-                                <button type="submit" class="btn btn-primary"> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_salvar"/></button>
-                                <!--<button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'form_termo_aditivo.jsp'"><i class="far fa-times-circle"></i> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_cancelar"/></button>-->		
-                            </form>                                   
-                        </div>
+                                        <button type="submit" class="btn btn-primary"> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_salvar"/></button>
+                                        <!--<button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'form_termo_aditivo.jsp'"><i class="far fa-times-circle"></i> <fmt:message key = "br.cefetrj.sisgee.form_empresa.msg_cancelar"/></button>-->		
+                                </form>                                   
+                            </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><fmt:message key = "br.cefetrj.sisgee.resources.form.fechar"/></button>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+                      
+                        
+                        
+                        
+                     
+                        
+                        
+                        
+                        
+                        
+        </div>
         <%@include file="import_footer.jspf"%>
         <%@include file="import_finalbodyscripts.jspf"%>
         <script type="text/javascript">
@@ -247,8 +249,8 @@
 
                 }
             });
-
-            function termoAditivo() {
+            
+            function termoAditivo(){
                 document.getElementById("termoAditivo").value = "sim";
             }
         </script>

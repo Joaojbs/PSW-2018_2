@@ -79,7 +79,6 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
         empresa.setEmailEmpresa(emailEmpresa);
         empresa.setTelefoneEmpresa(telefoneEmpresa.replaceAll("[.|/|-]", ""));
         
-
         Pessoa pessoa = new Pessoa(nomePessoa, cpfPessoa.replaceAll("[.|/|-]",""));
         pessoa.setEmail(emailPessoa);
         pessoa.setTelefone(telefonePessoa.replaceAll("[.|-]", ""));

@@ -40,8 +40,10 @@ public class alterarConvenioServlet extends HttpServlet {
 
         Locale locale = ServletUtils.getLocale(request);
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
-
         String numero = (String) request.getSession().getAttribute("numero");
+        if(numero==null){
+             numero = (String) request.getAttribute("numero");
+        }   
 
         String emailPessoa = request.getParameter("emailPessoa");
         String telefonePessoa = request.getParameter("telefonePessoa");
@@ -52,7 +54,7 @@ public class alterarConvenioServlet extends HttpServlet {
         String emailEmpresa = request.getParameter("emailEmpresa");
         String telefoneEmpresa = request.getParameter("telefoneEmpresa");
         String contatoEmpresa = request.getParameter("contatoEmpresa");
-
+        
         Convenio convenio = ConvenioServices.buscarConvenioByNumeroConvenio(numero);
         if (convenio.getEmpresa() != null) {
             convenio.getEmpresa().setContatoEmpresa(contatoEmpresa);

@@ -97,6 +97,7 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
              * ValidaUtils Campo obrigatório; Tamanho de 14 caracteres; CNPJ
              * repetido.
              */
+            request.setAttribute("numero", numeroConvenioEmpresa);
             String cnpjEmpresaMsg = "";
             tamanho = 14;
             cnpjEmpresaMsg = ValidaUtils.validaObrigatorio("CNPJ", cnpjEmpresa);
@@ -108,7 +109,7 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
                     cnpjEmpresaMsg = ValidaUtils.validaTamanhoExato("CNPJ", tamanho, cnpjEmpresa);
                     if (cnpjEmpresaMsg.trim().isEmpty()) {
                         Empresa e = EmpresaServices.buscarEmpresaByCnpj(cnpjEmpresa);
-                        if (e == null) {
+                        if (e != null) {
                             if (cnpjEmpresaMsg.trim().isEmpty()) {
                                 AgenteIntegracao a = AgenteIntegracaoServices.buscarAgenteIntegracaoByCnpj(cnpjEmpresa);
                                 if (a == null) {
@@ -122,7 +123,7 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
                                 request.setAttribute("cnpjEmpresa", cnpjEmpresa);
                             }
                         } else {
-                            cnpjEmpresaMsg = messages.getString("br.cefetrj.sisgee.valida_cadastro_empresa_servlet.msg_empresa_duplicada");
+                            cnpjEmpresaMsg = messages.getString("br.cefetrj.sisgee.form_empresa_alterar.msg_empresa_nao_cadastrada");
                             request.setAttribute("cnpjEmpresaMsg", cnpjEmpresaMsg);
                             isValid = false;
                         }
@@ -342,6 +343,69 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
                 //TODO Fazer log
                 System.out.println(dataRegistroMsg);
             }
+            
+            
+        //______________________________________________________________________________________________________________        
+        /**
+        * Validação do numero convenio Empresa
+        */        
+        String numeroConvenioEmpresaMsg = "";        
+        numeroConvenioEmpresaMsg = ValidaUtils.validaObrigatorio("numeroConvenioEmpresa", request.getParameter("numeroConvenioEmpresa"));
+        if (numeroConvenioEmpresaMsg.trim().isEmpty()) {            
+            if (numeroConvenioEmpresaMsg.trim().isEmpty()) {
+                try {
+                    int numero = Integer.parseInt(request.getParameter("numeroConvenioEmpresa"));
+
+                } catch (Exception e) {
+                    numeroConvenioEmpresaMsg = messages.getString("br.cefetrj.sisgee.form_termo_estagio_servlet.valor_invalido");
+                    request.setAttribute("numeroConvenioEmpresaMsg", numeroConvenioEmpresaMsg);
+                    isValid = false;  
+                   
+                }
+                Convenio c = ConvenioServices.buscarConvenioByNumeroConvenio(request.getParameter("numeroConvenioEmpresa"));
+                if (c == null){
+                    numeroConvenioEmpresaMsg = messages.getString("br.cefetrj.sisgee.form_empresa_alterar.msg_numeroConvenio_nao_cadastrado");
+                    request.setAttribute("numeroConvenioEmpresaMsg", numeroConvenioEmpresaMsg);
+                    isValid = false;
+                    
+                }
+            }
+        }else{
+                numeroConvenioEmpresaMsg = messages.getString(numeroConvenioEmpresaMsg);
+                request.setAttribute("numeroConvenioEmpresaMsg", numeroConvenioEmpresaMsg);
+                isValid = false;                    
+            
+        }       
+        
+        /**
+        * Validação do ano Empresao
+        */        
+        String anoEmpresaMsg = "";        
+        anoEmpresaMsg = ValidaUtils.validaObrigatorio("anoEmpresa", request.getParameter("anoEmpresa"));
+        if (anoEmpresaMsg.trim().isEmpty()) {
+            anoEmpresaMsg = ValidaUtils.validaTamanhoExato("anoEmpresa", 4, anoEmpresa);         
+            if (anoEmpresaMsg.trim().isEmpty()) {
+                try {
+                    int numero = Integer.parseInt(request.getParameter("anoEmpresa"));
+
+                } catch (Exception e) {
+                    anoEmpresaMsg = messages.getString("br.cefetrj.sisgee.form_termo_estagio_servlet.valor_invalido");
+                    request.setAttribute("anoEmpresaMsg", anoEmpresaMsg);
+                    isValid = false;  
+                }	
+            }else{ 
+                anoEmpresaMsg = messages.getString("br.cefetrj.sisgee.valida_utils.msg_valida_tamanho_exato4");
+                request.setAttribute("anoEmpresaMsg", anoEmpresaMsg);
+                isValid = false; 
+            }
+        }else{
+                anoEmpresaMsg = messages.getString(anoEmpresaMsg);
+                request.setAttribute("anoEmpresaMsg", anoEmpresaMsg);
+                isValid = false;                    
+            
+        }
+        //______________________________________________________________________________________________________________             
+
 
         } else {
             /**
@@ -349,24 +413,22 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
              * ValidaUtils Campo obrigatório; Tamanho de 11 caracteres; CPF
              * repetido.
              */
+            request.setAttribute("numero", numeroConvenio);
             String cpfPessoaMsg = "";
             tamanho = 11;
             cpfPessoaMsg = ValidaUtils.validaObrigatorio("CPF", cpfPessoa);
             if (cpfPessoaMsg.trim().isEmpty()) {
-
                 //remove caracteres especiais antes de vazer a validação numérica do CPF
                 cpfPessoa = cpfPessoa.replaceAll("[.|/|-]", "");
                 cpfPessoaMsg = ValidaUtils.validaInteger("CPF", cpfPessoa);
                 if (cpfPessoaMsg.trim().isEmpty()) {
                     cpfPessoaMsg = ValidaUtils.validaTamanhoExato("CPF", tamanho, cpfPessoa);
                     if (cpfPessoaMsg.trim().isEmpty()) {
-                        Pessoa e = PessoaServices.buscarPessoaByCpf(cpfPessoa);
-                        System.out.println(cpfPessoa);
-                        if (e == null) {
-                            System.out.println(cpfPessoa);
-                            request.setAttribute("cpfPessoa", cpfPessoa.replaceAll("[.|/|-]", ""));
+                        Pessoa e = PessoaServices.buscarPessoaByCpf(cpfPessoa);                        
+                        if (e != null) {
+                           request.setAttribute("cpfPessoa", cpfPessoa.replaceAll("[.|/|-]", ""));
                         } else {
-                            cpfPessoaMsg = messages.getString("br.cefetrj.sisgee.valida_cadastro_empresa_servlet.msg_pessoafisica_duplicada");
+                            cpfPessoaMsg = messages.getString("br.cefetrj.sisgee.form_empresa_alterar.msg_pessoa_fisica_nao_cadastrada");
                             request.setAttribute("cpfPessoaMsg", cpfPessoaMsg);
                             isValid = false;
                         }
@@ -526,70 +588,9 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
                 //TODO Fazer log
                 System.out.println(dataRegistroMsg);
             }
-
-        }
-//______________________________________________________________________________________________________________        
-        /**
-        * Validação do numero convenio Empresa
-        */        
-        String numeroConvenioEmpresaMsg = "";        
-        numeroConvenioEmpresaMsg = ValidaUtils.validaObrigatorio("numeroConvenioEmpresa", request.getParameter("numeroConvenioEmpresa"));
-        if (numeroConvenioEmpresaMsg.trim().isEmpty()) {            
-            if (numeroConvenioEmpresaMsg.trim().isEmpty()) {
-                try {
-                    int numero = Integer.parseInt(request.getParameter("numeroConvenioEmpresa"));
-
-                } catch (Exception e) {
-                    numeroConvenioEmpresaMsg = messages.getString("br.cefetrj.sisgee.form_termo_estagio_servlet.valor_invalido");
-                    request.setAttribute("numeroConvenioEmpresaMsg", numeroConvenioEmpresaMsg);
-                    isValid = false;  
-                   
-                }
-                Convenio c = ConvenioServices.buscarConvenioByNumeroConvenio(request.getParameter("numeroConvenioEmpresa"));
-                if (c!=null){
-                    numeroConvenioEmpresaMsg = messages.getString("br.cefetrj.sisgee.form_empresa.msg_numeroConvenio_existenter");
-                    request.setAttribute("numeroConvenioEmpresaMsg", numeroConvenioEmpresaMsg);
-                    isValid = false;
-                    
-                }
-            }
-        }else{
-                numeroConvenioEmpresaMsg = messages.getString(numeroConvenioEmpresaMsg);
-                request.setAttribute("numeroConvenioEmpresaMsg", numeroConvenioEmpresaMsg);
-                isValid = false;                    
             
-        }       
-        
-        /**
-        * Validação do ano Empresao
-        */        
-        String anoEmpresaMsg = "";        
-        anoEmpresaMsg = ValidaUtils.validaObrigatorio("anoEmpresa", request.getParameter("anoEmpresa"));
-        if (anoEmpresaMsg.trim().isEmpty()) {
-            anoEmpresaMsg = ValidaUtils.validaTamanhoExato("anoEmpresa", 4, anoEmpresa);         
-            if (anoEmpresaMsg.trim().isEmpty()) {
-                try {
-                    int numero = Integer.parseInt(request.getParameter("anoEmpresa"));
-
-                } catch (Exception e) {
-                    anoEmpresaMsg = messages.getString("br.cefetrj.sisgee.form_termo_estagio_servlet.valor_invalido");
-                    request.setAttribute("anoEmpresaMsg", anoEmpresaMsg);
-                    isValid = false;  
-                }	
-            }else{ 
-                anoEmpresaMsg = messages.getString("br.cefetrj.sisgee.valida_utils.msg_valida_tamanho_exato4");
-                request.setAttribute("anoEmpresaMsg", anoEmpresaMsg);
-                isValid = false; 
-            }
-        }else{
-                anoEmpresaMsg = messages.getString(anoEmpresaMsg);
-                request.setAttribute("anoEmpresaMsg", anoEmpresaMsg);
-                isValid = false;                    
             
-        }
-//______________________________________________________________________________________________________________             
-
-//______________________________________________________________________________________________________________        
+        //______________________________________________________________________________________________________________        
         /**
         * Validação do numero convenio Pessoa
         */        
@@ -608,8 +609,8 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
                 }
                 Convenio c = ConvenioServices.buscarConvenioByNumeroConvenio(request.getParameter("numeroConvenio"));
                 
-                if (c!=null){                    
-                    numeroConvenioMsg = messages.getString("br.cefetrj.sisgee.form_empresa.msg_numeroConvenio_existenter");               
+                if (c==null){                    
+                    numeroConvenioMsg = messages.getString("br.cefetrj.sisgee.form_empresa_alterar.msg_numeroConvenio_nao_cadastrado");               
                     request.setAttribute("numeroConvenioMsg", numeroConvenioMsg);
                     isValid = false;
                     
@@ -649,8 +650,11 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
                 isValid = false;                    
             
         }
-//______________________________________________________________________________________________________________             
+        //______________________________________________________________________________________________________________             
 
+            
+
+        }
 
 
         /**
@@ -658,12 +662,13 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
          * inclusão ou devolver para o formulário com as mensagens.
          */
         if (isValid) {
-            request.getRequestDispatcher("/IncluirCadastroEmpresaServlet").forward(request, response);
+           System.out.println("Entrou em alterar");
+            request.getRequestDispatcher("/alterarConvenioServlet").forward(request, response);
+            
 
         } else {
             String msg = messages.getString("br.cefetrj.sisgee.valida_cadastro_empresa_servlet.msg_atencao");
             request.setAttribute("msg", msg);
-
             request.getRequestDispatcher("/form_empresa_alterar.jsp").forward(request, response);
 
         }
