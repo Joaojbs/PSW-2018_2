@@ -114,7 +114,7 @@ public class ConvenioServices {
     }
 
     /**
-     * Método para buscar um convênio pelo número convênio
+     * Método para buscar um Termo pelo número convênio
      * @param numero
      * @return 
      */

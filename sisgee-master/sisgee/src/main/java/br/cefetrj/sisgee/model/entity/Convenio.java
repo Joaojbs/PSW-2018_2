@@ -90,6 +90,11 @@ public class Convenio implements Serializable {
     public String getAno() {
         return ano;
     }
+    
+     public void setAno(String ano) {
+         this.ano = ano;
+      
+    }
 
     
     public Date getdataRegistro() {
@@ -106,7 +111,7 @@ public class Convenio implements Serializable {
     
     public void setdataRegistro(Date dataRegistro) {
         this.dataRegistro = dataRegistro;
-        this.ano = new SimpleDateFormat("yyyy").format(dataRegistro);
+        //this.ano = new SimpleDateFormat("yyyy").format(dataRegistro);
     }
 
     public Pessoa getPessoa() {

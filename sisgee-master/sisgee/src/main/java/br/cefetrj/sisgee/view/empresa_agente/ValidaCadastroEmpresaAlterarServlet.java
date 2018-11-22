@@ -14,6 +14,7 @@ import br.cefetrj.sisgee.control.AgenteIntegracaoServices;
 import br.cefetrj.sisgee.control.ConvenioServices;
 import br.cefetrj.sisgee.control.EmpresaServices;
 import br.cefetrj.sisgee.control.PessoaServices;
+import br.cefetrj.sisgee.control.AlterarConvenioAlterarServlet;
 import br.cefetrj.sisgee.model.entity.AgenteIntegracao;
 import br.cefetrj.sisgee.model.entity.Convenio;
 import br.cefetrj.sisgee.model.entity.Empresa;
@@ -663,7 +664,7 @@ public class ValidaCadastroEmpresaAlterarServlet extends HttpServlet {
          */
         if (isValid) {
            System.out.println("Entrou em alterar");
-            request.getRequestDispatcher("/alterarConvenioServlet").forward(request, response);
+            request.getRequestDispatcher("/AlterarConvenioAlterarServlet").forward(request, response);
             
 
         } else {

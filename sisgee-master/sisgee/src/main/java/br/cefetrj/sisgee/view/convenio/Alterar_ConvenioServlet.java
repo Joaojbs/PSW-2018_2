@@ -6,6 +6,7 @@
 package br.cefetrj.sisgee.view.convenio;
 
 import br.cefetrj.sisgee.control.ConvenioServices;
+import br.cefetrj.sisgee.control.TermoEstagioServices;
 import br.cefetrj.sisgee.model.entity.Convenio;
 import br.cefetrj.sisgee.view.utils.ServletUtils;
 import static br.cefetrj.sisgee.view.utils.ValidaUtils.getData;
@@ -39,14 +40,11 @@ public class Alterar_ConvenioServlet extends HttpServlet {
         
         int pos = req.getParameter("convenio").indexOf("/");
         //Substring iniciando em 0 até posição do caracter especial
-      
-        
         String numeroConvenio = req.getParameter("convenio").substring(0,pos);
         
-        
         Convenio convenio = ConvenioServices.buscarConvenioByNumeroConvenio(numeroConvenio);
+       System.out.println("Existe termos "+ TermoEstagioServices.buscarTermoEstagioByNumeroConvenio(convenio)); 
        
-        
         if(convenio.getEmpresa()!=null){
             req.setAttribute("isEmpresa", "sim");
             req.setAttribute("tipoPessoa","sim");

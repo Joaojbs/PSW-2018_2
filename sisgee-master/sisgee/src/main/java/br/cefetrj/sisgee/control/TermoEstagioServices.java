@@ -21,6 +21,24 @@ import br.cefetrj.sisgee.model.entity.TermoEstagio;
  * @since 1.0
  */
 public class TermoEstagioServices {
+
+        /**
+         * Método para buscar um termo de estagio
+         * @param convenio
+         * @return 
+         */
+
+        public static TermoEstagio buscarTermoEstagioByNumeroConvenio(Convenio convenio) {            
+            TermoEstagioDAO termoEstagioDAO = new TermoEstagioDAO();
+            try {
+                TermoEstagio a = termoEstagioDAO.buscarByNumeroConvenio(convenio);
+                return a;
+            } catch (Exception e) {
+                return null;
+            }
+        }    
+
+        
 	
 	/**
 	 * Recupera todos os Termos de Estágio e retorna em uma lista.

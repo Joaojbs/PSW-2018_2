@@ -1,5 +1,7 @@
 package br.cefetrj.sisgee.model.dao;
 
+import br.cefetrj.sisgee.model.entity.Convenio;
+import br.cefetrj.sisgee.model.entity.TermoEstagio;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -14,7 +16,28 @@ import javax.persistence.Query;
  *
  */
 
-public class TermoEstagioDAO  {
+public class TermoEstagioDAO extends GenericDAO<TermoEstagio> {
+
+    public TermoEstagioDAO() {
+        
+        super(TermoEstagio.class, PersistenceManager.getEntityManager());
+    }
+
+    
+        /**
+         * Método que busca Termo por convênio
+         * @param convenio
+         * @return 
+         */
+        public TermoEstagio buscarByNumeroConvenio(Convenio convenio){
+		return (TermoEstagio) manager.createQuery(
+		    "SELECT a FROM TermoEstagio a WHERE a.convenio = :convenio ORDER BY a.convenio  ")
+		    .setParameter("convenio", convenio)
+                    .setMaxResults(1)
+		    .getSingleResult();
+                
+                
+	}
 	
 
 	public List<Object[]> buscarFiltrado(Boolean obrigatorio , Date inicio, Date termino){

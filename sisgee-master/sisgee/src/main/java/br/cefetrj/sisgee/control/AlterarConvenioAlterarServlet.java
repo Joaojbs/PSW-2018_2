@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.cefetrj.sisgee.view.convenio;
+package br.cefetrj.sisgee.control;
 
+import br.cefetrj.sisgee.view.convenio.*;
 import br.cefetrj.sisgee.control.ConvenioServices;
 import br.cefetrj.sisgee.model.entity.Convenio;
 import br.cefetrj.sisgee.view.utils.ServletUtils;
@@ -25,8 +26,8 @@ import org.apache.log4j.Logger;
  *
  * @author Lucas Lima
  */
-
-public class alterarConvenioServlet extends HttpServlet {
+@WebServlet("/AlterarConvenioAlterarServlet")
+public class AlterarConvenioAlterarServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -41,41 +42,69 @@ public class alterarConvenioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Locale locale = ServletUtils.getLocale(request);
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale);
-        String numero = (String) request.getSession().getAttribute("numero");
-        if(numero==null){
-             numero = (String) request.getAttribute("numero");
-        }   
-
-        String emailPessoa = request.getParameter("emailPessoa");
-        String telefonePessoa = request.getParameter("telefonePessoa");
-
-        Date dataRegistroConvenioEmpresa = (Date) request.getAttribute("dataRegistroConvenioEmpresa");
-        Date dataRegistroConvenioPessoa = (Date) request.getAttribute("dataRegistroConvenioPessoa");
-
+        boolean pessoaJuridica = true;
+        String tipoPessoa = request.getParameter("tipoPessoa");
+        
+        String agenteIntegracao = request.getParameter("agenteIntegracao");
+        String numeroConvenioEmpresa =request.getParameter("numeroConvenioEmpresa");
+        String anoEmpresa =request.getParameter("anoEmpresa");
+        String cnpjEmpresa = request.getParameter("cnpjEmpresa").replaceAll("[.|/|-]", "");
+        String nomeEmpresa = request.getParameter("nomeEmpresa");   
+        Date dataRegistroConvenioEmpresa = (Date)request.getAttribute("dataRegistroConvenioEmpresa");
         String emailEmpresa = request.getParameter("emailEmpresa");
-        String telefoneEmpresa = request.getParameter("telefoneEmpresa");
-        String contatoEmpresa = request.getParameter("contatoEmpresa");      
-        Convenio convenio = ConvenioServices.buscarConvenioByNumeroConvenio(numero); 
-                        
+        String telefoneEmpresa = request.getParameter("telefoneEmpresa").replaceAll("[(|)|-]", "");
+        String contatoEmpresa = request.getParameter("contatoEmpresa");
+ 
+        String numeroConvenio =request.getParameter("numeroConvenio");
+        String ano =request.getParameter("ano");
+        String cpfPessoa = request.getParameter("cpfPessoa").replaceAll("[.|-]", "");
+        String nomePessoa = request.getParameter("nomePessoa");     
+        Date dataRegistroConvenioPessoa = (Date)request.getAttribute("dataRegistroConvenioPessoa");        
+        String emailPessoa = request.getParameter("emailPessoa");
+        String telefonePessoa = request.getParameter("telefonePessoa").replaceAll("[(|)|-]", "");
+                
+        if (tipoPessoa.equals("nao")) {
+            pessoaJuridica = false;
+        }
+        
+        Convenio convenio;
+           
+        if(tipoPessoa.equals("sim")){
+            convenio = ConvenioServices.buscarConvenioByNumeroConvenio(numeroConvenioEmpresa);            
+        }else{
+            pessoaJuridica = false;
+            convenio = ConvenioServices.buscarConvenioByNumeroConvenio(numeroConvenio);           
+        }
+                
         if (convenio.getEmpresa() != null) {
+            convenio.getEmpresa().setAgenteIntegracao(Boolean.parseBoolean(agenteIntegracao));
+            convenio.getEmpresa().setCnpjEmpresa(cnpjEmpresa);
+            convenio.getEmpresa().setRazaoSocial(nomeEmpresa);
             convenio.getEmpresa().setContatoEmpresa(contatoEmpresa);
             convenio.getEmpresa().setTelefoneEmpresa(telefoneEmpresa);
             convenio.getEmpresa().setEmailEmpresa(emailEmpresa);
             convenio.setdataRegistro(dataRegistroConvenioEmpresa);
-
+            convenio.setNumero(numeroConvenioEmpresa);
+            convenio.setAno(anoEmpresa);
             convenio.setNumeroConvenio();
+             
         } else {
+            convenio.getPessoa().setCpf(cpfPessoa);
+            convenio.getPessoa().setNome(nomePessoa);
             convenio.getPessoa().setTelefone(telefonePessoa);
             convenio.getPessoa().setEmail(emailPessoa);
             convenio.setdataRegistro(dataRegistroConvenioPessoa);
+            convenio.setNumero(numeroConvenio);
+            convenio.setAno(ano);
             convenio.setNumeroConvenio();
+            
         }
-        
+     
         String msg = "";
-        Logger lg = Logger.getLogger(alterarConvenioServlet.class);
+        Logger lg = Logger.getLogger(AlterarConvenioAlterarServlet.class);
         try {
             ConvenioServices.alterarConvenio(convenio);
-            msg = messages.getString("br.cefetrj.sisgee.incluir_cadastro_empresa_servlet.msg_convenio_cadastrado");
+            msg = messages.getString("br.cefetrj.sisgee.form_empresa_alterar.msg_convenio_alteracao");
             request.setAttribute("msg", msg);
             request.setAttribute("numeroConvenioGerado", convenio.getNumeroConvenio());
             request.getRequestDispatcher("/form_empresa_sucesso.jsp").forward(request, response);
