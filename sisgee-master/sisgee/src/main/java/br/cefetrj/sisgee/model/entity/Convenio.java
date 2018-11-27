@@ -97,7 +97,7 @@ public class Convenio implements Serializable {
     }
 
     
-    public Date getdataRegistro() {
+    public Date getDataRegistro() {
         return dataRegistro;
     }
 
@@ -109,7 +109,7 @@ public class Convenio implements Serializable {
         
     }    
     
-    public void setdataRegistro(Date dataRegistro) {
+    public void setDataRegistro(Date dataRegistro) {
         this.dataRegistro = dataRegistro;
         //this.ano = new SimpleDateFormat("yyyy").format(dataRegistro);
     }

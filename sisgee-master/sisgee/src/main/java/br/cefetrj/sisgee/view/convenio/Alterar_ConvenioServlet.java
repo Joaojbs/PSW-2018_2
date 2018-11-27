@@ -57,7 +57,7 @@ public class Alterar_ConvenioServlet extends HttpServlet {
             req.setAttribute("numeroConvenioEmpresa", convenio.getNumero());
             req.setAttribute("cnpjEmpresa", convenio.getEmpresa().getCnpjEmpresa());
             req.setAttribute("nomeEmpresa", convenio.getEmpresa().getRazaoSocial());
-            req.setAttribute("dataRegistroConvenioEmpresa", getData(convenio.getdataRegistro()));
+            req.setAttribute("dataRegistroConvenioEmpresa", getData(convenio.getDataRegistro()));
             req.setAttribute("emailEmpresa", convenio.getEmpresa().getEmailEmpresa());
             req.setAttribute("telefoneEmpresa", convenio.getEmpresa().getTelefoneEmpresa());
             req.setAttribute("contatoEmpresa", convenio.getEmpresa().getContatoEmpresa());
@@ -69,7 +69,7 @@ public class Alterar_ConvenioServlet extends HttpServlet {
             req.setAttribute("numeroConvenioPessoa", convenio.getNumero());
             req.setAttribute("cpfPessoa", convenio.getPessoa().getCpf());
             req.setAttribute("nomePessoa", convenio.getPessoa().getNome());
-            req.setAttribute("dataRegistroConvenioPessoa", getData(convenio.getdataRegistro()));
+            req.setAttribute("dataRegistroConvenioPessoa", getData(convenio.getDataRegistro()));
             req.setAttribute("emailPessoa", convenio.getPessoa().getEmail());
             req.setAttribute("telefonePessoa", convenio.getPessoa().getTelefone());
             

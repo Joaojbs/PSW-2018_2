@@ -61,13 +61,13 @@ public class alterarConvenioServlet extends HttpServlet {
             convenio.getEmpresa().setContatoEmpresa(contatoEmpresa);
             convenio.getEmpresa().setTelefoneEmpresa(telefoneEmpresa);
             convenio.getEmpresa().setEmailEmpresa(emailEmpresa);
-            convenio.setdataRegistro(dataRegistroConvenioEmpresa);
+            convenio.setDataRegistro(dataRegistroConvenioEmpresa);
 
             convenio.setNumeroConvenio();
         } else {
             convenio.getPessoa().setTelefone(telefonePessoa);
             convenio.getPessoa().setEmail(emailPessoa);
-            convenio.setdataRegistro(dataRegistroConvenioPessoa);
+            convenio.setDataRegistro(dataRegistroConvenioPessoa);
             convenio.setNumeroConvenio();
         }
         
