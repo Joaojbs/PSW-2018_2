@@ -19,18 +19,14 @@
             $('.ehAgenteCheck').change(function(){
 	    	$('.AI').hide();
 	    	$(this).val() == 'sim' ? $('.isAI').show("slow") : $('.notAI').show("slow");;
-                var data = new Date;
-                           
+                var data = new Date;                           
                 if ( $("#numeroConvenioEmpresa").val()=="" && $("#anoEmpresa").val()=="" ){                    
                     $("#anoEmpresa").val(data.getFullYear());
                     buscar_numero_convenio_ajax();
-                    
-                                       
                 }
                 if ( $("#numeroConvenio").val()=="" && $("#ano").val()=="" ){                    
                     $("#ano").val(data.getFullYear());
                     buscar_numero_convenio_ajax();
-                                      
                 }
                     
                 
@@ -232,10 +228,8 @@
             <!-- TÉRMINO BOTÃO PARA BUSCA DE CONVENIO -->
             
             <!-- INICIO BOTÃO PARA BUSCA DE CONVENIO POR NOME-->
-	    $('#btnBuscarNomeConvenio').click(function(){
-	    	
+	    $('#btnBuscarNomeConvenio').click(function(){	    	
                 $elementConvenio = $('#nomeConvenio');
-
 	    	if($.trim($elementConvenio.val()) == ""){
                     $("#nomeConvenio").val("");
                     $("#myModalLabel").html("<fmt:message key="br.cefetrj.sisgee.import_busca_convenio_script.campo_vazio"/>");
@@ -244,8 +238,7 @@
                     return;             
 	    	}
 	    	
-	    	var result = null;
-                
+	    	var result = null;                
 	        $.ajax({
 	            type: 'GET',
 	            url: 'BuscaConvenioBotaoServlet', //Servlet
@@ -319,8 +312,7 @@
 	    }
 	    
             
-            function buscar_numero_convenio_ajax(){
-                                
+            function buscar_numero_convenio_ajax(){                                
                 $.ajax({
                     url: "BuscarNumeroConvenioServlet",
                     type: 'POST',
@@ -336,9 +328,5 @@
                 });
             }
         
-            
-            
-            
-            
-	    
+   	    
     </script>

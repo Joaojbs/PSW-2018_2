@@ -33,10 +33,6 @@ public class BuscarNumeroConvenioServlet extends HttpServlet {
          response.getWriter().print("{"+'"'+"numero"+'"'+":"+numeroConvenio+"}");
          response.getWriter().flush();
         
-                
-                
-                
-        
     }
 
     

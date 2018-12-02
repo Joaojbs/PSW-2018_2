@@ -163,7 +163,21 @@ public class IncluirCadastroEmpresaServlet extends HttpServlet {
     public static String gerarNumeroConvenio(){
         
         List<Convenio> x = ConvenioServices.listarConvenios();
-        String a = String.valueOf(x.size()+1);
+        int num = 0;
+        for (Convenio convenio : x) {
+            int aux;
+            try{
+               aux =Integer.parseInt(convenio.getNumero());
+            }catch(Exception e){
+                aux=0;
+            }
+           if(aux>num){
+            num =   Integer.parseInt(convenio.getNumero());
+           }            
+        }
+        
+        String a = Integer.toString(num+1);
+        System.out.println("proximo número convênio ...."+a);
         return a;
     }
 
