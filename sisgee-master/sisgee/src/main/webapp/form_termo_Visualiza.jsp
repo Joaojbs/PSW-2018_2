@@ -11,7 +11,7 @@
             form {
                 margin-top: 50px;
             }
-            fieldset.form-group {
+            fieldset.form-group {    
                 border:1px solid #999999;
             }
             fieldset legend.col-form-legend {
