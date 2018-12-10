@@ -252,15 +252,15 @@ public class FormTermoEstagioServlet extends HttpServlet {
         campo = "Valor";
         valorBolsaMsg = ValidaUtils.validaObrigatorio(campo, valorBolsa);
         if (valorBolsaMsg.trim().isEmpty()) {
-            String v=valorBolsa;
+            String v = valorBolsa;
             valorBolsa = valorBolsa.replaceAll("[.|,]", "");
-            
+
             valorBolsaMsg = ValidaUtils.validaFloat(campo, valorBolsa);
             if (valorBolsaMsg.trim().isEmpty()) {
                 Float valor = Float.parseFloat(valorBolsa);
                 valorBolsaMsg = ValidaUtils.validaTamanhoFloat(campo, valor);
                 if (valorBolsaMsg.trim().isEmpty()) {
-                    NumberFormat nf =NumberFormat.getNumberInstance(locale);
+                    NumberFormat nf = NumberFormat.getNumberInstance(locale);
                     try {
                         request.setAttribute("valor", new Float(nf.parse(v).floatValue()));
                     } catch (Exception e) {
@@ -404,21 +404,12 @@ public class FormTermoEstagioServlet extends HttpServlet {
         String cepEnderecoMsg = "";
         campo = "CEP";
         tamanho = 15;
-        cepEnderecoMsg = ValidaUtils.validaObrigatorio(campo, cepEnderecoTermoEstagio);
-        if (cepEnderecoMsg.trim().isEmpty()) {
-            cepEnderecoMsg = ValidaUtils.validaTamanho(campo, tamanho, cepEnderecoTermoEstagio);
-            if (bairroEnderecoMsg.trim().isEmpty()) {
-                request.setAttribute("cepEnderecoTermoEstagio", cepEnderecoTermoEstagio);
-            } else {
-                cepEnderecoMsg = messages.getString(cepEnderecoMsg);
-                cepEnderecoMsg = ServletUtils.mensagemFormatada(bairroEnderecoMsg, locale, tamanho);
-                request.setAttribute("cepEnderecoMsg", cepEnderecoMsg);
-                isValid = false;
-                //TODO Fazer log
-                System.out.println(cepEnderecoMsg);
-            }
+        cepEnderecoMsg = ValidaUtils.validaTamanho(campo, tamanho, cepEnderecoTermoEstagio);
+        if (bairroEnderecoMsg.trim().isEmpty()) {
+            request.setAttribute("cepEnderecoTermoEstagio", cepEnderecoTermoEstagio);
         } else {
             cepEnderecoMsg = messages.getString(cepEnderecoMsg);
+            cepEnderecoMsg = ServletUtils.mensagemFormatada(bairroEnderecoMsg, locale, tamanho);
             request.setAttribute("cepEnderecoMsg", cepEnderecoMsg);
             isValid = false;
             //TODO Fazer log
@@ -560,8 +551,8 @@ public class FormTermoEstagioServlet extends HttpServlet {
         String agenciadaMsg = "";
         campo = "agenciada";
         tamanho = 255;
-        if(!nomeAgenciada.trim().equals("")){
-            if(isAgenteIntegracao.equalsIgnoreCase("SIM")){
+        if (!nomeAgenciada.trim().equals("")) {
+            if (isAgenteIntegracao.equalsIgnoreCase("SIM")) {
                 agenciadaMsg = ValidaUtils.validaTamanho(campo, tamanho, nomeAgenciada);
                 if (agenciadaMsg.trim().isEmpty()) {
                     request.setAttribute("nomeAgenciada", nomeAgenciada);
@@ -573,15 +564,15 @@ public class FormTermoEstagioServlet extends HttpServlet {
                     //TODO Fazer log
                     System.out.println("agenciada " + agenciadaMsg);
                 }
-            }else {        
-                agenciadaMsg= "Empresa não é agente de integração";
+            } else {
+                agenciadaMsg = "Empresa não é agente de integração";
                 request.setAttribute("agenciadaMsg", agenciadaMsg);
                 isValid = false;
                 //TODO Fazer log
                 System.out.println("agenciada " + agenciadaMsg);
             }
-        }else{
-            agenciadaMsg= "";
+        } else {
+            agenciadaMsg = "";
             request.setAttribute("agenciadaMsg", agenciadaMsg);
         }
 
