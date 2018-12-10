@@ -140,7 +140,7 @@ public class TermoAditivoServices {
             
             try {
                 PersistenceManager.getTransaction().begin();
-                genericDAO.equals(aditivo);
+                genericDAO.excluir(aditivo);
                 PersistenceManager.getTransaction().commit();
             } catch (Exception e) {                
                 e.printStackTrace();

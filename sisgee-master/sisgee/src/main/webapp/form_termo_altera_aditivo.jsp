@@ -175,7 +175,7 @@
                         <div class="form-group col-md-6">
 
                             <label for="dataInicioTermoEstagio"><fmt:message key = "br.cefetrj.sisgee.resources.form.dataInicio"/></label>
-                            <input type="text" class="form-control col-sm-4 " id="dataInicioTermoEstagio"  name="dataInicioTermoEstagio" value="${ vidataInicioTermoEstagio }" disabled onchange="sugereData();">
+                            <input type="text" class="form-control col-sm-4 " id="dataInicioTermoEstagio"  name="dataInicioTermoEstagio" value="${ vidataInicioTermoEstagio }" onchange="sugereData();">
                             <p class="valid-feedback" id="dataIni" name="dataIni"></p>
                             <c:if test="${ not empty dataInicioMsg }">
                                 <div class="invalid-feedback">${ dataInicioMsg }</div>
@@ -183,7 +183,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dataFimTermoEstagio"><fmt:message key = "br.cefetrj.sisgee.resources.form.dataTermino"/></label>
-                            <input type="text" class="form-control col-sm-4 " id="dataFimTermoEstagio"   name="dataFimTermoEstagio" value="${showVigencia eq 'sim' ? '' : vidataFimTermoEstagio }" ${ showVigencia eq 'sim' ? '' :'disabled'} >
+                            <input type="text" class="form-control col-sm-4 " id="dataFimTermoEstagio"   name="dataFimTermoEstagio" value="${showVigencia eq 'sim' ? '' : vidataFimTermoEstagio }">
                             <c:if test="${ not empty dataFimMsg }">
                                 <div class="invalid-feedback">${ dataFimMsg }</div>
                             </c:if>
