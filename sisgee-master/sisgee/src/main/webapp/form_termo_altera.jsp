@@ -42,8 +42,8 @@
             <p class="tituloForm">
             <h5><fmt:message key = "br.cefetrj.sisgee.resources.form.registroTermoAditivo"/></h5>		
         </p>		
-        <form action="FormTermoAditivoServlet" method="post">
-            <fieldset class="form-group dadosAluno" disabled>
+        <form action="AlteraTermoEstagioServlet" method="post">
+            <fieldset class="form-group dadosAluno" >
                 <legend class="col-form-legend col-lg"><fmt:message key = "br.cefetrj.sisgee.resources.form.dadosAluno"/></legend>
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -55,22 +55,22 @@
                     </div>
                     <div class="form-group col-md">
                         <label for="nome"><fmt:message key = "br.cefetrj.sisgee.resources.form.nome"/></label>
-                        <input type="text" class="form-control" id="nome" name="nome" value="${ alNome }" readonly>
+                        <input type="text" class="form-control" id="nome" name="nome" value="${ alNome }" >
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nomeCurso"><fmt:message key = "br.cefetrj.sisgee.resources.form.curso"/></label>
-                        <input type="text" class="form-control" id="nomeCurso"  name="nomeCurso" value="${ alCurso }" readonly>
+                        <input type="text" class="form-control" id="nomeCurso"  name="nomeCurso" value="${ alCurso }" >
                     </div>
                     <div class="form-group col-md-6">
                         <label for="nomeCampus"><fmt:message key = "br.cefetrj.sisgee.resources.form.unidade"/></label>
-                        <input type="text" class="form-control" id="nomeCampus"  name="nomeCampus" value="${ alCampus }" readonly>
+                        <input type="text" class="form-control" id="nomeCampus"  name="nomeCampus" value="${ alCampus }" >
                     </div>
                 </div>
             </fieldset>
             <!-- AQUI VEM O CONVÊNIO-->
-            <fieldset class="form-group" disabled>
+            <fieldset class="form-group" >
                 <legend class="col-form-legend col-lg"><fmt:message key = "br.cefetrj.sisgee.resources.form.dadosEmpresaConveniada"/></legend>
                 <div class="form-group col-md-15">
                     <!-- AQUI VEM O NOME E NUMERO DO CONVÊNIO-->
@@ -133,12 +133,12 @@
                         <input type="hidden" class="form-control cnpjEcpf cnpjEcpf"  id="cnpjEcpf1" name="cnpjEcpf1" value="${cvCpfCnpj}">    
                         <label for="cnpjEcpf"><fmt:message key = "br.cefetrj.sisgee.resources.form.exibirCPFeCNPJ"/></label>
                         <div class="input-group">						  
-                            <input type="text" class="form-control cnpjEcpf" id="cnpjEcpf" name="cnpjEcpf" value="${cvCpfCnpj}" readonly>
+                            <input type="text" class="form-control cnpjEcpf" id="cnpjEcpf" name="cnpjEcpf" value="${cvCpfCnpj}" >
                         </div>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="nomeEmpresaPessoa"><fmt:message key = "br.cefetrj.sisgee.resources.form.razaoSocial"/></label>
-                        <input type="text" class="form-control nomeEmpresaPessoa nomeEmpresaPessoa" id="nomeEmpresaPessoa" name="nomeEmpresaPessoa" value="${ cvNome }" readonly>
+                        <input type="text" class="form-control nomeEmpresaPessoa nomeEmpresaPessoa" id="nomeEmpresaPessoa" name="nomeEmpresaPessoa" value="${ cvNome }" >
                     </div>
                 </div>
             </fieldset>
@@ -315,6 +315,7 @@
                     </c:if>				
                 </div>
             </fieldset>
+            <button type="submit" class="btn btn-primary" >Alterar Termo</button>
             <button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'form_termo_aditivo.jsp'">Voltar</button>
         </form>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

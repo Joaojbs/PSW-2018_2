@@ -48,7 +48,7 @@
 
             <h5><fmt:message key = "br.cefetrj.sisgee.resources.form.registroTermoAditivo"/></h5>		
         </p>		
-            <form action="FormTermoAditivoServlet" method="post">
+            <form action="AlteraAditivoServlet" method="post">
                 
                 <fieldset class="form-group dadosAluno" disabled>
                     <legend class="col-form-legend col-lg"><fmt:message key = "br.cefetrj.sisgee.resources.form.dadosAluno"/></legend>
@@ -346,7 +346,7 @@
                             </c:if>				
                         </div>
                 </fieldset>
-                    
+                    <button type="submit" class="btn btn-primary" >Alterar Aditivo</button>
                     <button type="button" class="btn btn-secondary" onclick="javascript:location.href = 'form_termo_aditivo.jsp'">Voltar</button>
                     	
             </form>
