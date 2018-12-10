@@ -140,4 +140,17 @@ public class TermoEstagioServices {
 			PersistenceManager.getTransaction().rollback();
 		}
 	}
+        
+        public static void excluiTermoEstagio(TermoEstagio termoEstagio){
+            GenericDAO<TermoEstagio> genericDAO = PersistenceManager.createGenericDAO(TermoEstagio.class);
+            
+            try {
+                PersistenceManager.getTransaction().begin();
+                genericDAO.excluir(termoEstagio);
+                PersistenceManager.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+                PersistenceManager.getTransaction().rollback();
+            }
+        }
 }
